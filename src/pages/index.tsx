@@ -5,6 +5,7 @@ import title from "@/static/images/home_title.png";
 import styles from '@/styles/home.module.scss';
 import {AboutDoc, DesignSystem, LeftOrigin, RightOrigin} from '@/data/doc';
 import {useEffect, useState} from "react";
+import {Button} from "antd";
 
 function Home() {
     const [bgHeight, setBgHeight] = useState('0px');
@@ -51,7 +52,7 @@ function Home() {
                                 <img src={item?.imgUrl} alt=""/>
                                 <div className={styles.title}>{item.title}</div>
                                 <div className={styles.subTitle}>{item.subTitle}</div>
-                                <div className={styles.jump} onClick={() => router.push(item.jumpUrl)}>{'查看详情>'}</div>
+                                <Button onClick={() => router.push(item.jumpUrl)} type={'link'}>{'查看详情>'}</Button>
                             </div>
                         ))
                     }
@@ -64,7 +65,7 @@ function Home() {
                                 <div style={{ margin: '35px 0px' }}>
                                     <div className={styles.title}>{item.title}</div>
                                     <div className={styles.subTitle}>{item.subTitle}</div>
-                                    <div className={styles.jump} onClick={() => router.push(item.jumpUrl)}>{'查看详情>'}</div>
+                                    <Button onClick={() => router.push(item.jumpUrl)} type={'link'}>{'查看详情>'}</Button>
                                 </div>
                             </div>
                         ))
