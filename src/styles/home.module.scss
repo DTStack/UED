@@ -1,0 +1,141 @@
+.header {
+  background-image: url('../static/images/home_background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+
+  .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.body {
+  height: 518px;
+  font-size: 20px;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #3D446E;
+  line-height: 28px;
+  text-align: center;
+
+  .container {
+    display: flex;
+    justify-content: center;
+
+    .box {
+      width: 373px;
+      height: 290px;
+      background: #F1F9FE;
+      border-radius: 16px;
+      margin-right: 40px;
+
+      img {
+        width: 160px;
+        height: 140px;
+      }
+
+      .subTitle {
+        font-size: 14px;
+        font-weight: 400;
+        color: #64698B;
+        padding: 0 40px;
+      }
+    }
+  }
+}
+
+.origin {
+  background-image: url("../static/images/openOrigin_bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: PingFangSC-Semibold, PingFang SC;
+
+  .left, .right {
+    background: rgba(255, 255, 255, 0.7000);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+  }
+
+  .leftBox {
+    width: 580px;
+    height: 381px;
+    margin-right: 40px;
+    text-align: center;
+
+    img {
+      width: 150px;
+    }
+
+    .title {
+      font-size: 30px;
+      font-weight: 600;
+      color: #3D446E;
+    }
+
+    .subTitle {
+      font-size: 14px;
+      font-weight: 400;
+      color: #64698B;
+      margin: 18px 0 40px 0;
+    }
+
+    .jump {
+      color: #1D78FF;
+    }
+  }
+
+  .rightBox {
+    width: 580px;
+    height: 170px;
+    display: flex;
+
+    img {
+      width: 100px;
+      height: 100px;
+      margin: 35px 21px 35px 40px;
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #3D446E;
+    }
+
+    .subTitle {
+      font-size: 14px;
+      font-weight: 400;
+      color: #64698B;
+      width: 236px;
+      margin: 12px 0px;
+    }
+
+    .jump {
+      color: #1D78FF;
+    }
+  }
+
+  .rightBox:first-child {
+    margin-bottom: 40px;
+  }
+}
+
+.footer {
+  height: 180px;
+  text-align: center;
+
+  .describe {
+    font-weight: 400;
+    font-family: PingFangSC-Regular, PingFang SC;
+    line-height: 20px;
+    color: #8B8FA8;
+    font-size: 12px;
+  }
+}

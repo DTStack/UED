@@ -1,0 +1,40 @@
+.centerBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+
+  .excerpt {
+    width: 798px;
+    margin-top: 60px;
+    line-height: 34px;
+    font-size: 16px;
+    color: #3D446E;
+    font-family: PingFangSC-Medium, PingFang SC;
+  }
+}
+
+.content {
+  background-image: url('../static/images/about_bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  .footer {
+    position: absolute;
+    left: 50%;
+    bottom: 60px;
+    transform: translateX(-50%);
+    text-align: center;
+    .describe {
+      font-weight: 400;
+      font-family: PingFangSC-Regular, PingFang SC;
+      line-height: 20px;
+      color: #8B8FA8;
+      font-size: 12px;
+    }
+  }
+}
