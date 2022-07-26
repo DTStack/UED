@@ -64,7 +64,7 @@ function Home() {
                                 <div style={{ margin: '35px 0px' }}>
                                     <div className={styles.title}>{item.title}</div>
                                     <div className={styles.subTitle}>{item.subTitle}</div>
-                                    <div className={styles.jump}>{'查看详情>'}</div>
+                                    <div className={styles.jump} onClick={() => router.push(item.jumpUrl)}>{'查看详情>'}</div>
                                 </div>
                             </div>
                         ))

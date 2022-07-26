@@ -27,3 +27,20 @@
     color: #3D446E;
   }
 }
+.menu {
+  width: 140px;
+  height: 300px;
+  border-radius: 15px;
+  :global {
+    .ant-dropdown-menu-item:first-child{
+      margin-top: 10px;
+    }
+    .ant-dropdown-menu-item{
+      line-height: 36px;
+    }
+    .ant-dropdown-menu-item:hover {
+      background: #F1F9FE;
+    }
+  }
+}
+

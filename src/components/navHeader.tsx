@@ -2,7 +2,8 @@
 import Link from 'next/link';
 import menu from "../data/menu";
 import { useRouter } from "next/router";
-import { Popover } from 'antd';
+import { Dropdown, Space, Menu } from 'antd';
+import { CaretDownOutlined } from '@ant-design/icons';
 import Image from "next/image";
 import Logo from "../static/images/logo.png";
 import styles from '../styles/navHeader.module.scss';
@@ -13,17 +14,19 @@ interface IProps {
 function NavHeader(props: IProps) {
     const { isShow } = props;
     const router = useRouter();
-    const content = (menu) => (
-        menu.map((item) => {
-            return <div onClick={() => router.push(item.jumpUrl)} key={item.key}>{item.label}</div>
-        })
-    );
+    const jumpAction = (item, menu) => {
+        let jumpItem = menu.filter((value) => value.key === item.key)
+        router.push(jumpItem[0].jumpUrl);
+    }
+    const content = (menu) => <Menu items={menu} onClick={(item) => jumpAction(item, menu)} className={styles.menu}/>
     const renderNavgitor = () => {
         return menu?.map(item => {
             if(!item.children.length){
                return <div onClick={() => router.push(item.jumpUrl)} key={item.key}>{item.label}</div>
             }
-            return <Popover content={content(item.children)} title={null} key={item.key}>{item.label}</Popover>;
+            return <Dropdown overlay={content(item.children)} key={item.key} trigger={['click']}>
+                    <Space>{item.label}<CaretDownOutlined /></Space>
+                </Dropdown>;
         })
     }
     return (
