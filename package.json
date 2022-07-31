@@ -11,18 +11,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@gitlab.prod.dtstack.cn:10022/mumiao/ued-landing.git"
+    "url": "https://github.com/DTStack/UED"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "antd": "^4.21.7",
     "next": "^12.2.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sharp": "^0.30.7"
   },
   "devDependencies": {
+    "@types/react": "^18.0.15",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "sass": "^1.53.0"

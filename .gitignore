@@ -6,3 +6,5 @@ dist
 .vscode
 .idea
 .next
+.DS_Store
+out
