@@ -1,0 +1,12 @@
+{
+  "name": "schedule",
+  "script": "index.js",
+  "cwd": "src/server",
+  "max_memory_restart": "500M",
+  "log_date_format": "YYYY-MM-DD HH:mm:ss",
+  "out_file": "pm2/logs/pm2-out.log",
+  "error_file": "pm2/logs/pm2-err.log",
+  "env_production": {
+    "NODE_ENV": "production"
+  }
+}
