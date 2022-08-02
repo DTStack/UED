@@ -16,13 +16,23 @@ function NavHeader(props: IProps) {
     const router = useRouter();
     const jumpAction = (item, menu) => {
         let jumpItem = menu.filter((value) => value.key === item.key)
-        router.push(jumpItem[0].jumpUrl);
+        window.open(jumpItem[0].jumpUrl);
     }
     const content = (menu) => <Menu items={menu} onClick={(item) => jumpAction(item, menu)} className={styles.menu}/>
     const renderNavgitor = () => {
         return menu?.map(item => {
             if(!item.children.length){
-               return <div onClick={() => router.push(item.jumpUrl)} key={item.key}>{item.label}</div>
+               return <div
+                   onClick={() => {
+                       if(['design'].includes(item.key)) {
+                           window.open(item?.jumpUrl);
+                           return;
+                       }
+                        router.push(item.jumpUrl)}
+                    }
+                   key={item.key}>
+                   {item.label}
+               </div>
             }
             return <Dropdown overlay={content(item.children)} key={item.key} trigger={['click']}>
                     <Space>{item.label}<CaretDownOutlined /></Space>
@@ -31,7 +41,7 @@ function NavHeader(props: IProps) {
     }
     return (
         <div className={styles.nav}>
-            <div className={styles.leftMenu}>
+            <div className={styles.leftMenu} onClick={() => router.push('/')}>
                 <Image src={Logo} width={46} height={52}/>
                 <div className={styles.subtitle}>袋鼠云数栈UED</div>
             </div>
