@@ -1,4 +1,5 @@
 const axios = require('axios')
+const { getDate } = require('../utils')
 
 // 从掘金查询 UED 的文章列表
 const getJueJinArticleList = async () => {
@@ -18,6 +19,7 @@ const getJueJinArticleList = async () => {
         await loop('0')
 
         return result.map(item => {
+            const { date: create_date, time: create_time } = getDate(item?.article_info?.ctime)
             return {
                 article_id: item?.article_id,
                 title: item?.article_info?.title,
@@ -25,6 +27,13 @@ const getJueJinArticleList = async () => {
                 view_count: item?.article_info?.view_count,
                 digg_count: item?.article_info?.digg_count,
                 comment_count: item?.article_info?.comment_count,
+                create_date,
+                create_time,
+                user_name: item?.author_user_info?.user_name,
+                tags: item?.tags?.map(tag => {
+                    const { tag_id, tag_name } = tag
+                    return { tag_id, tag_name }
+                }),
                 url: `https://juejin.cn/post/${item?.article_id}`,
             }
         })
