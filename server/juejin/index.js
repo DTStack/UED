@@ -22,8 +22,8 @@ const getJueJinArticleList = async () => {
             const { date: create_date, time: create_time } = getDate(item?.article_info?.ctime)
             return {
                 isDelete: 0,
-                create_time: getDateStr(),
-                update_time: getDateStr(),
+                createTime: getDateStr(),
+                updateTime: getDateStr(),
                 article_id: item?.article_id,
                 title: item?.article_info?.title,
                 brief_content: item?.article_info?.brief_content,
@@ -55,8 +55,8 @@ const getTagList = (articleList) => {
             tag_name,
             count: list.filter(tag => tag.tag_id === tag_id).length,
             isDelete: 0,
-            create_time: getDateStr(),
-            update_time: getDateStr(),
+            createTime: getDateStr(),
+            updateTime: getDateStr(),
         }
     })
     const obj = {}

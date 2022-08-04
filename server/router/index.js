@@ -5,12 +5,26 @@ const router = new Router()
 
 module.exports = app => {
     router.get('/api/getArticleList', async (ctx) => {
-        const { page = 1, pageSize = 10 } = ctx.query
-        ctx.body = await getArticleList(+page, +pageSize)
+        try {
+            const { page = 1, pageSize = 10 } = ctx.query
+            ctx.body = await getArticleList(+page, +pageSize)
+        } catch (error) {
+            ctx.body = {
+                code: 1,
+                error
+            }
+        }
     })
 
     router.get('/api/getTagList', async (ctx) => {
-        ctx.body = await getTagList()
+        try {
+            ctx.body = await getTagList()
+        } catch (error) {
+            ctx.body = {
+                code: 1,
+                error
+            }
+        }
     })
 
     app.use(router.routes(), router.allowedMethods())

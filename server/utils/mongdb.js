@@ -19,7 +19,7 @@ const insertArticles = async (articleList) => {
     const db = client.db(dbName)
     const collection = db.collection('article')
 
-    const updateResult = await collection.updateMany({ isDelete: 0 }, { $set: { isDelete: 1, update_time: getDateStr() } })
+    const updateResult = await collection.updateMany({ isDelete: 0 }, { $set: { isDelete: 1, updateTime: getDateStr() } })
     console.log('updateArticles documents =>', updateResult)
 
     const insertResult = await collection.insertMany(articleList)
@@ -31,7 +31,7 @@ const insertTags = async (tagList) => {
     const db = client.db(dbName)
     const collection = db.collection('tag')
 
-    const updateResult = await collection.updateMany({ isDelete: 0 }, { $set: { isDelete: 1, update_time: getDateStr() } })
+    const updateResult = await collection.updateMany({ isDelete: 0 }, { $set: { isDelete: 1, updateTime: getDateStr() } })
     console.log('updateTags documents =>', updateResult)
 
     const insertResult = await collection.insertMany(tagList)
