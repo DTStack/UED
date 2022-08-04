@@ -1,0 +1,94 @@
+.articleContent {
+    width: 1000px;
+    margin: 50px auto;
+    .sortBox {
+        padding-bottom: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        .sortItem {
+            padding: 4px 20px;
+            border-bottom: 1px #eee solid;
+            margin: 0 10px 10px 0;
+            user-select: none;
+            cursor: pointer;
+        }
+        .sortItemActive {
+            color: rgb(19, 183, 243);
+            border-bottom: 1px rgb(19, 183, 243) solid;
+        }
+    }
+
+    .tagBox {
+        display: flex;
+        flex-wrap: wrap;
+        .tagItem {
+            padding: 2px 20px;
+            border-radius: 4px;
+            border: 1px #eee solid;
+            margin: 0 10px 10px 0;
+            user-select: none;
+            cursor: pointer;
+        }
+        .tagItemActive {
+            color: rgb(19, 183, 243);
+            border: 1px rgb(19, 183, 243) solid;
+        }
+    }
+
+    .articleBox {
+        margin-top: 30px;
+        .articleItem {
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px #eee solid;
+            &:last-child {
+                border-bottom: none;
+            }
+            .title {
+                color: #333;
+                font-size: 18px;
+                font-weight: 600;
+                user-select: none;
+                cursor: pointer;
+                display: inline;
+                &:hover {
+                    color: #1e80ff;
+                }
+            }
+            .content {
+                padding: 10px 0;
+            }
+            .row {
+                display: flex;
+                .item {
+
+                }
+                .username {
+                    flex: 1;
+                    padding: 0 20px;
+                    user-select: none;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .pageBox {
+        padding-bottom: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .page {
+            padding: 4px 14px;
+            border-radius: 4px;
+            border: 1px #666 solid;
+            user-select: none;
+            cursor: pointer;
+        }
+        .total {
+            color: #333;
+            font-size: 14px;
+            padding: 0 20px;
+        }
+    }
+}

@@ -39,13 +39,27 @@ const insertTags = async (tagList) => {
 }
 
 // 查询文章列表
-const getArticleList = async (page, pageSize) => {
+const getArticleList = async (page, pageSize, sort_type, tag_id) => {
     const db = client.db(dbName)
     const collection = db.collection('article')
 
-    const allArticleList = await collection.find({ isDelete: 0 }).toArray()
+    let allArticleList = await collection.find({ isDelete: 0 }).toArray()
+
+    // 带标签查询
+    if (tag_id) {
+        allArticleList = allArticleList.filter(item => {
+            return item.tags.map(tag => tag.tag_id).includes(tag_id)
+        })
+    }
+
     const start = (page - 1) * pageSize
-    const articleList = allArticleList.slice(start, start + pageSize)
+    let articleList = allArticleList.slice(start, start + pageSize)
+
+    // 1 按热门排序，2 按时间排序
+    if (sort_type === '1') {
+        articleList = articleList.sort((a, b) => b?.view_count - a?.view_count)
+    }
+
     const data = {
         total: allArticleList.length,
         page,
