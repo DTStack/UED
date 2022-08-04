@@ -1,16 +1,19 @@
+// 引入模块
+const Koa = require('koa')
 const schedule = require('node-schedule')
+const router = require('./router')
 const envJson = require('./.env.json')
 const { getJueJinArticleList, getTagList } = require('./juejin')
 const { initDB, insertArticles, insertTags } = require('./utils/mongdb')
 
+// 实例化
+const app = new Koa()
+
+// 启动路由
+router(app)
+
 const env = process.env.NODE_ENV || 'development'
 const { cron } = envJson[env]
-
-// schedule.scheduleJob(cron, async () => {
-//     console.log('请求掘金数据', cron);
-//     const result = await getJueJinArticleList()
-//     console.log(111, result)
-// });
 
 const main = async () => {
     await initDB()
@@ -23,4 +26,9 @@ const main = async () => {
     const tagList = getTagList(articleList)
     await insertTags(tagList)
 }
-main()
+
+// main()
+app.listen(envJson.appPort, () => {
+    console.log(`app runs on port ${ envJson.appPort }`)
+    schedule.scheduleJob(cron, main)
+})
