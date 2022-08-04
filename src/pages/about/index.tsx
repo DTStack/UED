@@ -18,7 +18,7 @@ function Index() {
     return <div>
         <NavHeader isShow={false}/>
         <div className={styles.centerBox}>
-            <Image src={title} width={180} height={39} alt="" />
+            <Image src={title} width={180} height={39}/>
             <div className={styles.excerpt}>{AboutDoc.subtitle}</div>
         </div>
         <div className={styles.content} style={{ height: bgHeight }}>

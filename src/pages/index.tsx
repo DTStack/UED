@@ -26,7 +26,7 @@ function Home() {
             <div className={styles.header} style={{ height: bgHeight }}>
                 <NavHeader isShow={true}/>
                 <div className={styles.title}>
-                    <Image src={title} width={423} height={39} alt="" />
+                    <Image src={title} width={423} height={39}/>
                 </div>
             </div>
             <div className={styles.body}>
@@ -35,7 +35,7 @@ function Home() {
                     {
                         DesignSystem?.map((item) => (
                             <div className={styles.box} key={item.key} onClick={() => router.push(item.jumpUrl)}>
-                                <Image src={item?.imgUrl} alt="" />
+                                <img src={item?.imgUrl} alt=""/>
                                 <div>{item.title}</div>
                                 <div className={styles.subTitle}>{item.subTitle}</div>
                             </div>
@@ -49,7 +49,7 @@ function Home() {
                     {
                         LeftOrigin?.map((item) => (
                             <div key={item.key}>
-                                <Image src={item?.imgUrl} alt="" />
+                                <img src={item?.imgUrl} alt=""/>
                                 <div className={styles.title}>{item.title}</div>
                                 <div className={styles.subTitle}>{item.subTitle}</div>
                                 <Button onClick={() => router.push(item.jumpUrl)} type={'link'}>{'查看详情>'}</Button>
@@ -61,7 +61,7 @@ function Home() {
                     {
                         RightOrigin?.map((item) => (
                             <div className={`${styles.rightBox} ${styles.right}`} key={item.key}>
-                                <Image src={item?.imgUrl} alt="" />
+                                <img src={item?.imgUrl} alt=""/>
                                 <div style={{ margin: '35px 0px' }}>
                                     <div className={styles.title}>{item.title}</div>
                                     <div className={styles.subTitle}>{item.subTitle}</div>
