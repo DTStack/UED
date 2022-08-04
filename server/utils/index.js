@@ -1,5 +1,5 @@
 // 将时间戳转换成日期
-const getDate = (val) => {
+const getDate = (val = new Date().getTime() / 1000) => {
     const date = new Date(Number(val) * 1000)
     const year = date.getFullYear()
     const month = date.getMonth() + 1
@@ -18,6 +18,12 @@ const addZero = (num) => {
     return num < 10 ? `0${num}` : num
 }
 
+const getDateStr = (val) => {
+    const { date, time } = getDate(val)
+    return `${date} ${time}`
+}
+
 module.exports = {
     getDate,
+    getDateStr,
 }

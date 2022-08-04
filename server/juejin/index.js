@@ -1,5 +1,5 @@
 const axios = require('axios')
-const { getDate } = require('../utils')
+const { getDate, getDateStr } = require('../utils')
 
 // 从掘金查询 UED 的文章列表
 const getJueJinArticleList = async () => {
@@ -21,6 +21,8 @@ const getJueJinArticleList = async () => {
         return result.map(item => {
             const { date: create_date, time: create_time } = getDate(item?.article_info?.ctime)
             return {
+                isDelete: 0,
+                date: getDateStr(),
                 article_id: item?.article_id,
                 title: item?.article_info?.title,
                 brief_content: item?.article_info?.brief_content,
@@ -42,6 +44,31 @@ const getJueJinArticleList = async () => {
     }
 }
 
+// 整理标签列表
+const getTagList = (articleList) => {
+    let list = articleList.map(item => item.tags).flat(Infinity)
+    list = list.map(item => {
+        const { tag_id, tag_name } = item
+        return {
+            tag_id,
+            tag_name,
+            count: list.filter(tag => tag.tag_id === tag_id).length,
+            isDelete: 0,
+            date: getDateStr(),
+        }
+    })
+    const obj = {}
+    const tagList = list.reduce((prev, item) => {
+        if (!obj[item.tag_id]) {
+            obj[item.tag_id] = true
+            prev.push(item)
+        }
+        return prev
+    }, [])
+    return tagList
+}
+
 module.exports = {
     getJueJinArticleList,
+    getTagList,
 }

@@ -23,6 +23,7 @@
     "@ant-design/icons": "^4.7.0",
     "antd": "^4.21.7",
     "axios": "^0.27.2",
+    "mongodb": "^4.8.1",
     "next": "^12.2.2",
     "node-schedule": "^2.1.0",
     "react": "^18.2.0",
