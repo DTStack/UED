@@ -32,7 +32,7 @@ function NavHeader(props: IProps) {
     return (
         <div className={styles.nav}>
             <div className={styles.leftMenu}>
-                <Image src={Logo} width={46} height={52}/>
+                <Image src={Logo} width={46} height={52} alt="" />
                 <div className={styles.subtitle}>袋鼠云数栈UED</div>
             </div>
             <div className={styles.rightMenu}>
