@@ -11,6 +11,7 @@ specifiers:
   eslint-config-next: 12.2.3
   koa: ^2.13.4
   koa-router: ^12.0.0
+  koa2-cors: ^2.0.6
   mongodb: ^4.8.1
   next: ^12.2.2
   node-schedule: ^2.1.0
@@ -24,6 +25,7 @@ dependencies:
   axios: 0.27.2
   koa: 2.13.4
   koa-router: 12.0.0
+  koa2-cors: 2.0.6
   mongodb: 4.8.1
   next: 12.2.2_0fe4a934aa1e1081e7f5c8003433fd83
   node-schedule: 2.1.0
@@ -2240,6 +2242,11 @@ packages:
       vary: 1.1.2
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /koa2-cors/2.0.6:
+    resolution: {integrity: sha512-JRCcSM4lamM+8kvKGDKlesYk2ASrmSTczDtGUnIadqMgnHU4Ct5Gw7Bxt3w3m6d6dy3WN0PU4oMP43HbddDEWg==}
+    engines: {node: '>= 7.6.0'}
     dev: false
 
   /language-subtag-registry/0.3.22:
