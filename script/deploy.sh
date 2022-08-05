@@ -1,6 +1,3 @@
-git add server/.env.json
-git pull
-
 npm run build
 
 # node server

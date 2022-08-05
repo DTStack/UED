@@ -30,7 +30,7 @@ const Article = () => {
             .then(res => {
                 const { articleList, total } = res.data
                 setArticleList(articleList || [])
-                setTotal(total || [])
+                setTotal(total || 0)
             })
     }, [tag_id, sort_type, page])
 

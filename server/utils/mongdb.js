@@ -76,7 +76,7 @@ const getArticleList = async (page, pageSize, sort_type, tag_id) => {
 }
 
 // 查询标签列表
-const getTagList = async (page, pageSize) => {
+const getTagList = async () => {
     const db = client.db(dbName)
     const collection = db.collection('tag')
 
