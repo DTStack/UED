@@ -44,6 +44,7 @@ const getArticleList = async (page, pageSize, sort_type, tag_id) => {
     const collection = db.collection('article')
 
     let allArticleList = await collection.find({ isDelete: 0 }).toArray()
+    const totalCount = allArticleList.length
 
     // 带标签查询
     if (tag_id) {
@@ -61,6 +62,7 @@ const getArticleList = async (page, pageSize, sort_type, tag_id) => {
     }
 
     const data = {
+        totalCount,
         total: allArticleList.length,
         page,
         pageSize,
