@@ -74,7 +74,7 @@
     }
 
     .pageBox {
-        padding-bottom: 50px;
+        padding-bottom: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -90,5 +90,11 @@
             font-size: 14px;
             padding: 0 20px;
         }
+    }
+
+    .totalCount {
+        font-size: 16px;
+        text-align: center;
+        padding-bottom: 50px;
     }
 }

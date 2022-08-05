@@ -6,6 +6,7 @@ const Article = () => {
     const [sort_type, setSortType] = useState('2');
     const [page, setPage] = useState('1');
     const [total, setTotal] = useState(0);
+    const [totalCount, setTotalCount] = useState(0);
     const [tagList, setTagList] = useState([]);
     const [articleList, setArticleList] = useState([]);
     const pageSize = '5'
@@ -28,9 +29,10 @@ const Article = () => {
         fetch(`http://localhost:3002/api/getArticleList?${new URLSearchParams(params).toString()}`)
             .then(res => res.json())
             .then(res => {
-                const { articleList, total } = res.data
+                const { articleList, total, totalCount } = res.data
                 setArticleList(articleList || [])
                 setTotal(total || 0)
+                setTotalCount(totalCount || 0)
             })
     }, [tag_id, sort_type, page])
 
@@ -100,6 +102,8 @@ const Article = () => {
                 <div className={styles.total}>第 {page} 页，共 {total} 篇文章</div>
                 <div className={styles.page} onClick={handleNext}>下一页</div>
             </div>
+
+            <div className={styles.totalCount}>累计已发布 {totalCount} 篇</div>
         </div>
     )
 }
