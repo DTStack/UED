@@ -1,9 +1,25 @@
 const Router = require('koa-router')
-const { getArticleList, getTagList } = require('../utils/mongdb')
+const { updateArticleList, getArticleList, getTagList } = require('../utils/mongdb')
 
 const router = new Router()
 
 module.exports = app => {
+    // 主动更新文章数据
+    router.get('/api/updateArticleList', async (ctx) => {
+        try {
+            await updateArticleList()
+            ctx.body = ctx.body = {
+                code: 200,
+                message: '成功',
+            }
+        } catch (error) {
+            ctx.body = {
+                code: 1,
+                error
+            }
+        }
+    })
+
     router.get('/api/getArticleList', async (ctx) => {
         try {
             const { page = '1', pageSize = '10', sort_type = '2', tag_id } = ctx.query

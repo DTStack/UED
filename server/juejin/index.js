@@ -46,7 +46,7 @@ const getJueJinArticleList = async () => {
 }
 
 // 整理标签列表
-const getTagList = (articleList) => {
+const getTagListByArticleList = (articleList) => {
     let list = articleList.map(item => item.tags).flat(Infinity)
     list = list.map(item => {
         const { tag_id, tag_name } = item
@@ -72,5 +72,5 @@ const getTagList = (articleList) => {
 
 module.exports = {
     getJueJinArticleList,
-    getTagList,
+    getTagListByArticleList,
 }

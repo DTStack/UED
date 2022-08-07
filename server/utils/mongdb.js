@@ -1,49 +1,99 @@
-const { MongoClient } = require('mongodb')
+const mongoose = require('mongoose')
+const { Schema } = mongoose
 const { getDateStr } = require('./index')
+const { getJueJinArticleList, getTagListByArticleList } = require('../juejin')
 const envJson = require('../.env.json')
 
 const env = process.env.NODE_ENV || 'development'
 const { host, port, dbName, username, password } = envJson[env]
 const url = `mongodb://${username}:${password}@${host}:${port}/${dbName}`
 
-const client = new MongoClient(url)
+const articleSchema = new Schema({
+    isDelete: Number,
+    createTime: String,
+    updateTime: String,
+    article_id: String,
+    view_count: Number,
+    digg_count: Number,
+    comment_count: Number,
+    title: String,
+    brief_content: String,
+    create_date: String,
+    create_time: String,
+    user_name: String,
+    tags: [
+        {
+            tag_id: String,
+            tag_name: String,
+        }
+    ],
+    url: String,
+});
+const tagSchema = new Schema({
+    isDelete: Number,
+    count: Number,
+    createTime: String,
+    updateTime: String,
+    tag_id: String,
+    tag_name: String,
+});
+
+const Article = mongoose.model('Article', articleSchema, 'article')
+const Tag = mongoose.model('Tag', tagSchema, 'tag')
 
 // 初始化数据库链接
 const initDB = async () => {
-    await client.connect()
-    console.log('Connected successfully to mongodb')
+    try {
+        await mongoose.connect(url)
+        console.log('Connected successfully to mongodb by mongoose!')
+    } catch (error) {
+        console.log('Connect error: ', error)
+    }
 }
 
 // 新增查询到的文章列表
 const insertArticles = async (articleList) => {
-    const db = client.db(dbName)
-    const collection = db.collection('article')
-
-    const updateResult = await collection.updateMany({ isDelete: 0 }, { $set: { isDelete: 1, updateTime: getDateStr() } })
-    console.log('updateArticles documents =>', updateResult)
-
-    const insertResult = await collection.insertMany(articleList)
-    console.log('insertArticles documents =>', insertResult)
+    try {
+        await Article.updateMany({ isDelete: 0 }, { $set: { isDelete: 1, updateTime: getDateStr() } })
+        await Article.insertMany(articleList)
+        await Article.deleteMany({ isDelete: 1 })
+    } catch (error) {
+        console.log('insertArticles error: ', error)
+        throw error
+    }
 }
 
 // 新增查询到的标签列表
 const insertTags = async (tagList) => {
-    const db = client.db(dbName)
-    const collection = db.collection('tag')
+    try {
+        await Tag.updateMany({ isDelete: 0 }, { $set: { isDelete: 1, updateTime: getDateStr() } })
+        await Tag.insertMany(tagList)
+        await Tag.deleteMany({ isDelete: 1 })
+    } catch (error) {
+        console.log('insertTags error: ', error)
+        throw error
+    }
+}
 
-    const updateResult = await collection.updateMany({ isDelete: 0 }, { $set: { isDelete: 1, updateTime: getDateStr() } })
-    console.log('updateTags documents =>', updateResult)
+// 主动更新文章数据
+const updateArticleList = async () => {
+    try {
+        // 保存文章列表
+        const articleList = await getJueJinArticleList()
+        await insertArticles(articleList)
 
-    const insertResult = await collection.insertMany(tagList)
-    console.log('insertTags documents =>', insertResult)
+        // 保存标签列表
+        const tagList = getTagListByArticleList(articleList)
+        await insertTags(tagList)
+    } catch (error) {
+        console.log('updateArticleList error: ', updateArticleList)
+        throw error
+    }
 }
 
 // 查询文章列表
 const getArticleList = async (page, pageSize, sort_type, tag_id) => {
-    const db = client.db(dbName)
-    const collection = db.collection('article')
-
-    let allArticleList = await collection.find({ isDelete: 0 }).toArray()
+    let allArticleList = await Article.find({ isDelete: 0 })
     const totalCount = allArticleList.length
 
     // 带标签查询
@@ -77,10 +127,8 @@ const getArticleList = async (page, pageSize, sort_type, tag_id) => {
 
 // 查询标签列表
 const getTagList = async () => {
-    const db = client.db(dbName)
-    const collection = db.collection('tag')
+    const data = await Tag.find({ isDelete: 0 })
 
-    const data = await collection.find({ isDelete: 0 }).toArray()
     return {
         code: 200,
         data,
@@ -90,8 +138,7 @@ const getTagList = async () => {
 
 module.exports = {
     initDB,
-    insertArticles,
-    insertTags,
+    updateArticleList,
     getArticleList,
     getTagList,
 }
