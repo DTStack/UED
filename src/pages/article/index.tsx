@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styles from '@/styles/article.module.scss';
 
-const Article = () => {
+const Article = (data) => {
     const [tag_id, setTagId] = useState('');
     const [sort_type, setSortType] = useState('2');
     const [page, setPage] = useState('1');
@@ -9,6 +9,7 @@ const Article = () => {
     const [totalCount, setTotalCount] = useState(0);
     const [tagList, setTagList] = useState([]);
     const [articleList, setArticleList] = useState([]);
+    const firstUpdate = useRef(true);
     const pageSize = '5'
 
     useEffect(() => {
@@ -20,6 +21,15 @@ const Article = () => {
     }, [])
 
     useEffect(() => {
+        if (firstUpdate.current) {
+            const { articleList, total, totalCount } = data
+            setArticleList(articleList || [])
+            setTotal(total || 0)
+            setTotalCount(totalCount || 0)
+
+            firstUpdate.current = false
+            return
+        }
         const params = {
             page,
             pageSize,
@@ -96,7 +106,6 @@ const Article = () => {
                 }
             </div>
 
-
             <div className={styles.pageBox}>
                 <div className={styles.page} onClick={handlePrev}>上一页</div>
                 <div className={styles.total}>第 {page} 页，共 {total} 篇文章</div>
@@ -109,3 +118,10 @@ const Article = () => {
 }
 
 export default Article
+
+export async function getServerSideProps (context) {
+    const { data } = await fetch(`http://localhost:3002/api/getArticleList`).then(res => res.json())
+    return {
+        props: data
+    }
+}
