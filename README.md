@@ -25,6 +25,10 @@ npm run lint
 ## Deploy
 
 ``` bash
-npm run build
 npm run deploy
 ```
+
+
+## Interface document
+
+https://www.apifox.cn/apidoc/shared-c119f3d8-9f58-48bd-9584-0ed56c50d653

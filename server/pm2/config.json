@@ -1,7 +1,7 @@
 {
   "name": "schedule",
   "script": "index.js",
-  "cwd": "src/server",
+  "cwd": "server",
   "max_memory_restart": "500M",
   "log_date_format": "YYYY-MM-DD HH:mm:ss",
   "out_file": "pm2/logs/pm2-out.log",
