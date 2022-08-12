@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import NavHeader from "@/components/navHeader";
 import styles from '@/styles/about.module.scss';
 import Image from "next/image";
-import title from '@/static/images/about_title.png';
 import {AboutDoc} from '@/data/doc';
+import APP_CONF from "@/data/config";
 
 function Index() {
     const [bgHeight, setBgHeight] = useState('0px');
@@ -18,7 +18,7 @@ function Index() {
     return <div>
         <NavHeader isShow={false}/>
         <div className={styles.centerBox}>
-            <Image src={title} width={180} height={39}/>
+            <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/About/about_title.png`} width={180} height={39}/>
             <div className={styles.excerpt}>{AboutDoc.subtitle}</div>
         </div>
         <div className={styles.content} style={{ height: bgHeight }}>

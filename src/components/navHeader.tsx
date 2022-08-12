@@ -5,8 +5,8 @@ import { useRouter } from "next/router";
 import { Dropdown, Space, Menu } from 'antd';
 import { CaretDownOutlined } from '@ant-design/icons';
 import Image from "next/image";
-import Logo from "../static/images/logo.png";
 import styles from '../styles/navHeader.module.scss';
+import APP_CONF from "@/data/config";
 
 interface IProps {
     isShow: boolean;
@@ -42,7 +42,7 @@ function NavHeader(props: IProps) {
     return (
         <div className={styles.nav}>
             <div className={styles.leftMenu} onClick={() => router.push('/')}>
-                <Image src={Logo} width={46} height={52}/>
+                <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/logo.png`} width={46} height={52}/>
                 <div className={styles.subtitle}>袋鼠云数栈UED</div>
             </div>
             <div className={styles.rightMenu}>

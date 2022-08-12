@@ -1,9 +1,9 @@
 import NavHeader from "@/components/navHeader";
 import Image from "next/image";
-import title from "@/static/images/home_title.png";
 import styles from '@/styles/home.module.scss';
 import {AboutDoc, DesignSystem, LeftOrigin, RightOrigin} from '@/data/doc';
 import {useEffect, useState} from "react";
+import APP_CONF from "@/data/config";
 import {Button} from "antd";
 
 function Home() {
@@ -24,7 +24,7 @@ function Home() {
             <div className={styles.header} style={{ height: bgHeight }}>
                 <NavHeader isShow={true}/>
                 <div className={styles.title}>
-                    <Image src={title} width={423} height={39}/>
+                    <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/home_title.png`} width={423} height={39}/>
                 </div>
             </div>
             <div className={styles.body}>
