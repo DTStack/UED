@@ -1,4 +1,9 @@
-npm run build
+git add server/.env.json
+git checkout .
+git pull
+
+pnpm i
+pnpm build
 
 # node server
 pm2 restart server/pm2/config.json --env production
