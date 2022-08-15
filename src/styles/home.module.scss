@@ -1,5 +1,5 @@
 .header {
-  background-image: url('../static/images/home_background.png');
+  background-image: url('http://assets.dtstack.com/UEDLanding/Home/home_background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -32,6 +32,8 @@
       background: #F1F9FE;
       border-radius: 16px;
       margin-right: 40px;
+      cursor: pointer;
+      transition: box-shadow .3s;
 
       img {
         width: 160px;
@@ -45,11 +47,14 @@
         padding: 0 40px;
       }
     }
+    .box:hover {
+      box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
+    }
   }
 }
 
 .origin {
-  background-image: url("../static/images/openOrigin_bg.png");
+  background-image: url("http://assets.dtstack.com/UEDLanding/Home/openOrigin_bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -69,6 +74,7 @@
     height: 381px;
     margin-right: 40px;
     text-align: center;
+    transition: box-shadow .3s;
 
     img {
       width: 150px;
@@ -86,16 +92,13 @@
       color: #64698B;
       margin: 18px 0 40px 0;
     }
-
-    .jump {
-      color: #1D78FF;
-    }
   }
 
   .rightBox {
     width: 580px;
     height: 170px;
     display: flex;
+    transition: box-shadow .3s;
 
     img {
       width: 100px;
@@ -116,12 +119,11 @@
       width: 236px;
       margin: 12px 0px;
     }
-
-    .jump {
-      color: #1D78FF;
-    }
   }
 
+  .leftBox:hover,.rightBox:hover {
+    box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
+  }
   .rightBox:first-child {
     margin-bottom: 40px;
   }

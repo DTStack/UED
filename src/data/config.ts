@@ -6,5 +6,6 @@ const APP_CONF = {
     DT_UTILS: 'https://dtstack.github.io/dt-utils/#/',
     DT_SQL_PARSER: 'https://dtstack.github.io/monaco-sql-languages/',
     DORAEMON: 'https://dtstack.github.io/doraemon/docsify/#/',
+    IMAGE_DOMAIN: 'http://assets.dtstack.com',
 }
 export default APP_CONF;

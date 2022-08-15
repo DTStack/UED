@@ -1,15 +1,14 @@
 import NavHeader from "@/components/navHeader";
 import Image from "next/image";
-import { useRouter } from "next/router";
-import title from "@/static/images/home_title.png";
 import styles from '@/styles/home.module.scss';
 import {AboutDoc, DesignSystem, LeftOrigin, RightOrigin} from '@/data/doc';
 import {useEffect, useState} from "react";
+import APP_CONF from "@/data/config";
+import {Button} from "antd";
 
 function Home() {
     const [bgHeight, setBgHeight] = useState('0px');
     const [originHeight, setOriginHeight] = useState('0px');
-    const router = useRouter();
     useEffect(() => {
         homeBackgroundHeight(document);
     })
@@ -25,7 +24,7 @@ function Home() {
             <div className={styles.header} style={{ height: bgHeight }}>
                 <NavHeader isShow={true}/>
                 <div className={styles.title}>
-                    <Image src={title} width={423} height={39}/>
+                    <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/home_title.png`} width={423} height={39}/>
                 </div>
             </div>
             <div className={styles.body}>
@@ -33,7 +32,7 @@ function Home() {
                 <div className={styles.container}>
                     {
                         DesignSystem?.map((item) => (
-                            <div className={styles.box} key={item.key} onClick={() => router.push(item.jumpUrl)}>
+                            <div className={styles.box} key={item.key} onClick={() => window.open(item.jumpUrl)}>
                                 <img src={item?.imgUrl} alt=""/>
                                 <div>{item.title}</div>
                                 <div className={styles.subTitle}>{item.subTitle}</div>
@@ -51,7 +50,7 @@ function Home() {
                                 <img src={item?.imgUrl} alt=""/>
                                 <div className={styles.title}>{item.title}</div>
                                 <div className={styles.subTitle}>{item.subTitle}</div>
-                                <div className={styles.jump} onClick={() => router.push(item.jumpUrl)}>{'查看详情>'}</div>
+                                <Button onClick={() => window.open(item.jumpUrl)} type={'link'}>{'查看详情>'}</Button>
                             </div>
                         ))
                     }
@@ -64,7 +63,7 @@ function Home() {
                                 <div style={{ margin: '35px 0px' }}>
                                     <div className={styles.title}>{item.title}</div>
                                     <div className={styles.subTitle}>{item.subTitle}</div>
-                                    <div className={styles.jump}>{'查看详情>'}</div>
+                                    <Button onClick={() => window.open(item.jumpUrl)} type={'link'}>{'查看详情>'}</Button>
                                 </div>
                             </div>
                         ))
