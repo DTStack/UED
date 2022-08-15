@@ -53,3 +53,26 @@ export const RightOrigin = [
         jumpUrl: APP_CONF.DORAEMON
     }
 ]
+
+export const OpenOriginUrl = [
+    {
+        name: '知乎',
+        site: 'https://www.zhihu.com/',
+    },
+    {
+        name: '掘金',
+        site: 'https://juejin.cn/',
+    },
+    {
+        name: '简书',
+        site: 'https://www.jianshu.com/',
+    },
+    {
+        name: '博客园',
+        site: 'https://www.cnblogs.com/',
+    },
+    {
+        name: '思否',
+        site: 'https://segmentfault.com/',
+    },
+]
