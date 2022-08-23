@@ -1,31 +1,33 @@
 # UED landing
 
+Please use pnpm.
+
 
 ## Get Start
 
 - 1、static page
 
 ``` bash
-npm run dev
+pnpm run dev
 ```
 
 - 2、dev node server
 
 ``` bash
-npm run dev:node
+pnpm run dev:node
 ```
 
 - 3、lint
 
 ``` bash
-npm run lint
+pnpm run lint
 ```
 
 
 ## Deploy
 
 ``` bash
-npm run deploy
+pnpm run deploy
 ```
 
 
