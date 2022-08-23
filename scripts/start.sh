@@ -1,6 +1,4 @@
-git add server/.env.json
-git checkout .
-git pull
+#!/bin/bash
 
 pnpm i
 pnpm build
