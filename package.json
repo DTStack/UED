@@ -1,6 +1,6 @@
 {
   "name": "ued-landing",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -36,10 +36,12 @@
   "devDependencies": {
     "@types/react": "^18.0.15",
     "commitizen": "^4.2.4",
+    "conventional-changelog-cli": "^2.2.2",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.21.0",
     "eslint-config-next": "12.2.3",
     "sass": "^1.53.0",
+    "standard-version": "^9.5.0",
     "zx": "^7.0.8"
   },
   "config": {

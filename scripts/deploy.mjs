@@ -34,7 +34,7 @@ $.verbose = false;
 
     infoLog(`5. Generate Changelog`);
     $.verbose = true;
-    await $`npx standard-version --release-as ${nextVersion}`;
+    await $`npx standard-version -r ${nextVersion}`;
     $.verbose = false;
     doneLog();
 
