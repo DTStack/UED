@@ -13,39 +13,25 @@ const assert = (validation, str) => {
 $.verbose = false;
 
 (async () => {
-    infoLog('1. Check the staged');
-    const isGitClean = (await $`git status --porcelain`).stdout.trim().length;
-    assert(!isGitClean, 'You should empty the staged before release.');
-    doneLog();
-
-    infoLog('2. Check the branch');
-    const currentBranch = (await $`git rev-parse --abbrev-ref HEAD`).stdout.trim();
-    assert(currentBranch === 'master', `You should deploy on master.`);
-    doneLog();
-
-    infoLog('3. Check the remote up to date');
-    const gitStatus = (await $`git status --short --branch`).stdout.trim();
-    assert(!gitStatus.includes('behind'), `Git status is behind remote, please run 'git pull'.`);
-    doneLog();
-
-    infoLog('4. Bump version');
+    infoLog('1. Bump version');
     const lastVersion = require('../package.json').version;
     const nextVersion = await question(`Input the next version(current version is ${lastVersion}): `);
 
-    infoLog(`5. Generate Changelog`);
+    infoLog(`2. Generate Changelog`);
     $.verbose = true;
     await $`npx standard-version -r ${nextVersion}`;
     $.verbose = false;
     doneLog();
 
-    infoLog('6. Input server ip');
+    infoLog('3. Input server ip');
     const ip = await question(`Input the server ip: `);
     doneLog(`Your ip is ${ip}.`);
 
-    infoLog(`7. Uploading files...`);
-    echo(await $`scp -P 22 -r public scripts server src *.json next* *.yaml deploy@${ip}:/opt/dtstack/temp/UED`);
+    infoLog(`4. Uploading files...`);
+    $.verbose = true;
+    echo(await $`scp -P 22 -r public scripts server src *.json next* *.yaml deploy@${ip}:/opt/dtstack/UED`);
+    $.verbose = false;
     doneLog();
 
-    infoLog(`Upload done`);
-    doneLog(`Please ssh to server and run 'pnpm restart' to complete deploy.`);
+    doneLog(`Deploy done. Please ssh to server and run 'pnpm restart' to complete deploy.`);
 })();

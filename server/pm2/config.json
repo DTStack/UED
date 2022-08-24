@@ -1,5 +1,5 @@
 {
-  "name": "schedule",
+  "name": "ued-schedule",
   "script": "index.js",
   "cwd": "server",
   "max_memory_restart": "500M",
