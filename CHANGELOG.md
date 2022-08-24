@@ -1,4 +1,8 @@
-## 0.0.1 (2022-08-23)
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### 0.0.1 (2022-08-24)
 
 
 ### Features
@@ -19,6 +23,7 @@
 * eslint and README ([8c1d535](https://github.com/DTStack/UED/commit/8c1d535c2c6790d312e93a76a7193a9d59bfb1db))
 * get data from juejin done ([fd7d763](https://github.com/DTStack/UED/commit/fd7d7639e2323a09ec8bcc047076083ad9355352))
 * github action ([ac3f7c3](https://github.com/DTStack/UED/commit/ac3f7c3d90aebe2427870b54dc100fec2e19778d))
+* img alt Image ([a2d8343](https://github.com/DTStack/UED/commit/a2d8343cb21b622aa8617198d970dd9cfd90e788))
 * img use cdn ([f32a9ee](https://github.com/DTStack/UED/commit/f32a9eeb9a40fe0ddebe028b8b8e99a5c4d94b8b))
 * migrate framework section ([0431e06](https://github.com/DTStack/UED/commit/0431e069b97e4a39ffef180bcc7e5e4bf6a070ed))
 * modify jump methond ([21a88fb](https://github.com/DTStack/UED/commit/21a88fba805e8190a1149944f4bc93bb5b0dd9b8))
@@ -28,6 +33,3 @@
 * totalCount ([1b09360](https://github.com/DTStack/UED/commit/1b0936023e426a31cebbb06af13e98638f515385))
 * use getServerSideProps to render by server ([ff7cbb3](https://github.com/DTStack/UED/commit/ff7cbb3af8c1ba9861339f43d831f97ff5bbfc83))
 * use totalCount ([5fecfa8](https://github.com/DTStack/UED/commit/5fecfa824c485a5af8bce5f8cc7373ea0922dcee))
-
-
-
