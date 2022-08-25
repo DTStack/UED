@@ -56,22 +56,27 @@ export const RightOrigin = [
 
 export const OpenOriginUrl = [
     {
+        key: 'zhihu',
         name: '知乎',
         site: 'https://www.zhihu.com/',
     },
     {
+        key: 'juejin',
         name: '掘金',
         site: 'https://juejin.cn/',
     },
     {
+        key: 'jianshu',
         name: '简书',
         site: 'https://www.jianshu.com/',
     },
     {
+        key: 'cnblogs',
         name: '博客园',
         site: 'https://www.cnblogs.com/',
     },
     {
+        key: 'segmentfault',
         name: '思否',
         site: 'https://segmentfault.com/',
     },

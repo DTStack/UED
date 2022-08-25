@@ -13,7 +13,7 @@ const Article = (data) => {
     const [tagList, setTagList] = useState([]);
     const [articleList, setArticleList] = useState([]);
     const firstUpdate = useRef(true);
-    const pageSize = '5'
+    const pageSize = '7';
 
     useEffect(() => {
         fetch('http://localhost:3002/api/getTagList')
@@ -21,9 +21,14 @@ const Article = (data) => {
             .then(res => {
                 setTagList(res.data || [])
             })
+        getArticleList();
     }, [])
 
     useEffect(() => {
+        getArticleList();
+    }, [tag_id, sort_type, page])
+
+    const getArticleList = () => {
         if (firstUpdate.current) {
             const { articleList, total, totalCount } = data
             setArticleList(articleList || [])
@@ -47,7 +52,7 @@ const Article = (data) => {
                 setTotal(total || 0)
                 setTotalCount(totalCount || 0)
             })
-    }, [tag_id, sort_type, page])
+    }
 
     const handleSelectSortType = (sort_type) => {
         setPage('1')
@@ -126,6 +131,7 @@ const Article = (data) => {
                                 OpenOriginUrl.map(url => {
                                     return (
                                         <div
+                                            key={url.key}
                                             className={styles.originItem}
                                             onClick={() => window.open(url.site)}
                                         >
