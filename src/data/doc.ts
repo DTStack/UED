@@ -1,7 +1,7 @@
 import APP_CONF from './config';
 export const AboutDoc = {
     subtitle: '我们是袋鼠云数栈 UED 团队，致力于打造优秀的一站式数据中台产品。我们始终保持工匠精神，探索前端道路，为社区积累并传播经验价值。',
-    footer: '@2022 数栈前端组 All Rights Reserved'
+    footer: '袋鼠云数栈UED团队'
 }
 
 export const DesignSystem = [

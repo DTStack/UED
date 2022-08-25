@@ -45,7 +45,7 @@ function NavHeader(props: IProps) {
         <div className={classNames(styles.nav, {[styles.fixedNav]: isFixed })}>
             <div className={styles.leftMenu} onClick={() => router.push('/')}>
                 <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/logo.png`} width={46} height={52}/>
-                <div className={styles.subtitle}>袋鼠云数栈UED</div>
+                <div className={styles.subtitle}>袋鼠云数栈UED团队</div>
             </div>
             <div className={styles.rightMenu}>
                 { isShow && renderNavgitor()}

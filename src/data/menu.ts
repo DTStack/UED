@@ -31,7 +31,7 @@ const menu = [
             {
                 key: 'theme',
                 name: 'theme',
-                label: 'Theme',
+                label: 'ant-design-dtinsight-theme',
                 jumpUrl: APP_CONF.THEME
             },
             {
@@ -43,7 +43,7 @@ const menu = [
             {
                 key: 'component',
                 name: 'component',
-                label: '组件库',
+                label: 'dt-react-component',
                 jumpUrl: APP_CONF.COMPONENT
             },
             {
@@ -55,13 +55,13 @@ const menu = [
             {
                 key: 'utils',
                 name: 'utils',
-                label: 'DT_utils',
+                label: 'dt-utils',
                 jumpUrl: APP_CONF.DT_UTILS
             },
             {
                 key: 'sql-parser',
                 name: 'sql-parser',
-                label: 'DT-sql-parser',
+                label: 'dt-sql-parser',
                 jumpUrl: APP_CONF.DT_SQL_PARSER
             },
         ],
