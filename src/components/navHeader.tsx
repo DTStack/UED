@@ -5,14 +5,16 @@ import { useRouter } from "next/router";
 import { Dropdown, Space, Menu } from 'antd';
 import { CaretDownOutlined } from '@ant-design/icons';
 import Image from "next/image";
-import styles from '../styles/navHeader.module.scss';
 import APP_CONF from "@/data/config";
+import classNames from "classnames";
+import styles from '../styles/navHeader.module.scss';
 
 interface IProps {
     isShow: boolean;
+    isFixed: boolean;
 }
 function NavHeader(props: IProps) {
-    const { isShow } = props;
+    const { isShow, isFixed } = props;
     const router = useRouter();
     const jumpAction = (item, menu) => {
         let jumpItem = menu.filter((value) => value.key === item.key)
@@ -40,10 +42,10 @@ function NavHeader(props: IProps) {
         })
     }
     return (
-        <div className={styles.nav}>
+        <div className={classNames(styles.nav, {[styles.fixedNav]: isFixed })}>
             <div className={styles.leftMenu} onClick={() => router.push('/')}>
                 <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/logo.png`} width={46} height={52}/>
-                <div className={styles.subtitle}>袋鼠云数栈UED</div>
+                <div className={styles.subtitle}>袋鼠云数栈UED团队</div>
             </div>
             <div className={styles.rightMenu}>
                 { isShow && renderNavgitor()}

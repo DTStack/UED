@@ -22,7 +22,7 @@ function Home() {
     return (
         <div>
             <div className={styles.header} style={{ height: bgHeight }}>
-                <NavHeader isShow={true}/>
+                <NavHeader isShow={true} isFixed={false}/>
                 <div className={styles.title}>
                     <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/home_title.png`} width={423} height={39}/>
                 </div>

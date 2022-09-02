@@ -16,7 +16,7 @@ function Index() {
         setBgHeight(BgHeight);
     }
     return <div>
-        <NavHeader isShow={false}/>
+        <NavHeader isShow={false} isFixed={false}/>
         <div className={styles.centerBox}>
             <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/About/about_title.png`} width={180} height={39}/>
             <div className={styles.excerpt}>{AboutDoc.subtitle}</div>

@@ -28,8 +28,14 @@
     cursor: pointer;
   }
 }
+.fixedNav {
+  background: #FFFFFF;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 .menu {
-  width: 140px;
+  width: 210px;
   height: 300px;
   border-radius: 15px;
   :global {

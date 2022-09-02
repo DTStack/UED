@@ -1,100 +1,181 @@
-.articleContent {
-    width: 1000px;
-    margin: 50px auto;
-    .sortBox {
-        padding-bottom: 10px;
-        display: flex;
-        flex-wrap: wrap;
-        .sortItem {
-            padding: 4px 20px;
-            border-bottom: 1px #eee solid;
-            margin: 0 10px 10px 0;
-            user-select: none;
-            cursor: pointer;
+.article {
+    .totalCard {
+        height: 226px;
+        margin-top: 80px;
+        background-image: url("http://assets.dtstack.com/UEDLanding/Article/article_bg.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        font-size: 16px;
+        text-align: center;
+        font-family: PingFangSC-Medium, PingFang SC;
+        img{
+            width: 61px;
+            margin-top: 40px;
+            margin-bottom: 24px;
         }
-        .sortItemActive {
-            color: rgb(19, 183, 243);
-            border-bottom: 1px rgb(19, 183, 243) solid;
+        h1{
+            font-size: 20px;
+            color: #3D446E;
         }
-    }
-
-    .tagBox {
-        display: flex;
-        flex-wrap: wrap;
-        .tagItem {
-            padding: 2px 20px;
-            border-radius: 4px;
-            border: 1px #eee solid;
-            margin: 0 10px 10px 0;
-            user-select: none;
-            cursor: pointer;
-        }
-        .tagItemActive {
-            color: rgb(19, 183, 243);
-            border: 1px rgb(19, 183, 243) solid;
+        p {
+            font-size: 12px;
+            font-weight: 400;
+            color: #8B8FA8;
+            line-height: 20px;
         }
     }
+    .articleContent {
+        background: #F7FBFD;
 
-    .articleBox {
-        margin-top: 30px;
-        .articleItem {
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-            border-bottom: 1px #eee solid;
-            &:last-child {
-                border-bottom: none;
+        .articleContentBox {
+            width: 85%;
+            margin: 0px auto;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 22px;
+            .leftBox {
+                flex: 1;
+                margin-right: 20px;
+                background: #FFFFFF;
             }
-            .title {
-                color: #333;
-                font-size: 18px;
-                font-weight: 600;
-                user-select: none;
-                cursor: pointer;
-                display: inline;
-                &:hover {
-                    color: #1e80ff;
+            .rightBox {
+                .tagBox {
+                    width: 220px;
+                    background: #FFFFFF;
+                    display: flex;
+                    flex-wrap: wrap;
+                    padding: 20px;
+                    color: #3D446E;
+                    .title {
+                        font-size: 16px;
+                        font-family: MiSans-Medium, MiSans;
+                        font-weight: 500;
+                        line-height: 22px;
+                        width: 100%;
+                        padding-bottom: 20px;
+                    }
+                    .tagItem {
+                        font-size: 12px;
+                        font-family: PingFangSC-Regular, PingFang SC;
+                        font-weight: 400;
+                        padding: 6px 16px;
+                        border-radius: 16px;
+                        border: 1px #eee solid;
+                        margin: 0 10px 10px 0;
+                        user-select: none;
+                        cursor: pointer;
+                    }
+                    .tagItemActive {
+                        color: rgb(19, 183, 243);
+                        border: 1px rgb(19, 183, 243) solid;
+                    }
+                }
+                .originBox {
+                    width: 220px;
+                    background: #FFFFFF;
+                    color: #3D446E;
+                    margin-top: 20px;
+                    padding: 20px;
+                    .title {
+                        font-size: 16px;
+                        font-family: MiSans-Medium, MiSans;
+                        font-weight: 500;
+                        line-height: 22px;
+                        width: 100%;
+                        padding-bottom: 20px;
+                    }
+                    .originItem {
+                        font-family: PingFangSC-Regular, PingFang SC;
+                        font-weight: 400;
+                        color: #1D78FF;
+                        line-height: 24px;
+                        margin-bottom: 20px;
+                        img {
+                            margin-right: 11px;
+                            margin-bottom: 2px;
+                        }
+                    }
                 }
             }
-            .content {
-                padding: 10px 0;
-            }
-            .row {
+            .sortBox {
+                border-bottom: 1px solid #EBECF0;
                 display: flex;
-                .item {
-
-                }
-                .username {
-                    flex: 1;
-                    padding: 0 20px;
+                flex-wrap: wrap;
+                height: 53px;
+                line-height: 53px;
+                padding: 0 20px;
+                .sortItem {
+                    padding: 4px 20px;
+                    border-bottom: 1px #eee solid;
+                    margin: 0 10px 10px 0;
                     user-select: none;
                     cursor: pointer;
                 }
+                .sortItemActive {
+                    color: rgb(19, 183, 243);
+                    border-bottom: 1px rgb(19, 183, 243) solid;
+                }
+            }
+
+            .articleBox {
+                .articleItem {
+                    padding: 20px;
+                    border-bottom: 1px #eee solid;
+                    font-family: PingFangSC-Regular, PingFang SC;
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                    .title {
+                        color: #3D446E;
+                        font-size: 16px;
+                        font-weight: 500;
+                        user-select: none;
+                        cursor: pointer;
+                        display: inline;
+                        &:hover {
+                            color: #1e80ff;
+                        }
+                    }
+                    .content {
+                        padding: 16px 0;
+                        color: #64698B;
+                    }
+                    .row {
+                        display: flex;
+                        color: #8B8FA8;
+                        img {
+                            margin-right: 8px;
+                            margin-bottom: 2px;
+                        }
+                        .username {
+                            flex: 1;
+                            padding: 0 20px;
+                            user-select: none;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .pageBox {
+                padding-bottom: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .page {
+                    padding: 4px 14px;
+                    border-radius: 4px;
+                    border: 1px #666 solid;
+                    user-select: none;
+                    cursor: pointer;
+                }
+                .total {
+                    color: #333;
+                    font-size: 14px;
+                    padding: 0 20px;
+                }
             }
         }
-    }
-
-    .pageBox {
-        padding-bottom: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        .page {
-            padding: 4px 14px;
-            border-radius: 4px;
-            border: 1px #666 solid;
-            user-select: none;
-            cursor: pointer;
-        }
-        .total {
-            color: #333;
-            font-size: 14px;
-            padding: 0 20px;
-        }
-    }
-
-    .totalCount {
-        font-size: 16px;
-        text-align: center;
-        padding-bottom: 50px;
     }
 }
