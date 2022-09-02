@@ -116,7 +116,7 @@ const Article = (data) => {
                         <div className={styles.tagBox}>
                             <div className={styles.title}>相关分类</div>
                             {
-                                tagList.map(tag => {
+                                tagList?.map(tag => {
                                     return (
                                         <div className={`${styles.tagItem} ${ tag.tag_id === tag_id ? styles.tagItemActive : '' }`} key={tag.tag_id} onClick={(item) => handleSelectTag(item, tag)}>
                                             {tag.tag_name} {tag.count}
@@ -156,9 +156,9 @@ const Article = (data) => {
 
 export default Article
 
-// export async function getServerSideProps (context) {
-//     const { data } = await fetch(`http://localhost:3002/api/getArticleList`).then(res => res.json())
-//     return {
-//         props: data
-//     }
-// }
+export async function getServerSideProps (context) {
+    const { data } = await fetch(`http://localhost:3002/api/getArticleList`).then(res => res.json())
+    return {
+        props: data
+    }
+}
