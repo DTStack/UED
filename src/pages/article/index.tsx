@@ -2,7 +2,8 @@ import { useEffect, useState, useRef } from 'react';
 import styles from '@/styles/article.module.scss';
 import NavHeader from "@/components/navHeader";
 import APP_CONF from "@/data/config";
-import {OpenOriginUrl} from "@/data/doc";
+import {OpenOriginUrl, seo} from "@/data/doc";
+import Head from "next/head";
 
 const Article = (data) => {
     const [tag_id, setTagId] = useState('');
@@ -14,6 +15,7 @@ const Article = (data) => {
     const [articleList, setArticleList] = useState([]);
     const firstUpdate = useRef(true);
     const pageSize = '7';
+    const {title, description, keywords} = seo || {};
 
     useEffect(() => {
         fetch('http://localhost:3002/api/getTagList')
@@ -78,6 +80,12 @@ const Article = (data) => {
 
     return (
         <div className={styles.article}>
+            <Head>
+                <title>{title}</title>
+                <meta charSet="utf-8" />
+                <meta name="keywords" content={keywords} />
+                <meta name="description" content={description} />
+            </Head>
             <NavHeader isShow={true} isFixed={true}/>
             <div className={styles.totalCard}>
                 <img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/logo_big.png`} alt=""/>

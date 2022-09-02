@@ -1,4 +1,10 @@
 import APP_CONF from './config';
+
+export const seo = {
+    title: '袋鼠云数栈UED团队',
+    keywords: '袋鼠云数栈UED团队',
+    description: '创造美好的用户体验',
+};
 export const AboutDoc = {
     subtitle: '我们是袋鼠云数栈 UED 团队，致力于打造优秀的一站式数据中台产品。我们始终保持工匠精神，探索前端道路，为社区积累并传播经验价值。',
     footer: '袋鼠云数栈UED团队'

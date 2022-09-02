@@ -1,14 +1,16 @@
 import NavHeader from "@/components/navHeader";
 import Image from "next/image";
 import styles from '@/styles/home.module.scss';
-import {AboutDoc, DesignSystem, LeftOrigin, RightOrigin} from '@/data/doc';
+import {AboutDoc, DesignSystem, LeftOrigin, RightOrigin, seo} from '@/data/doc';
 import {useEffect, useState} from "react";
 import APP_CONF from "@/data/config";
 import {Button} from "antd";
+import Head from "next/head";
 
 function Home() {
     const [bgHeight, setBgHeight] = useState('0px');
     const [originHeight, setOriginHeight] = useState('0px');
+    const {title, keywords, description} = seo || {};
     useEffect(() => {
         homeBackgroundHeight(document);
     })
@@ -21,6 +23,12 @@ function Home() {
     }
     return (
         <div>
+            <Head>
+                <title>{title}</title>
+                <meta charSet="utf-8" />
+                <meta name="keywords" content={keywords} />
+                <meta name="description" content={description} />
+            </Head>
             <div className={styles.header} style={{ height: bgHeight }}>
                 <NavHeader isShow={true} isFixed={false}/>
                 <div className={styles.title}>
