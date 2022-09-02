@@ -21,7 +21,6 @@ const Article = (data) => {
             .then(res => {
                 setTagList(res.data || [])
             })
-        getArticleList();
     }, [])
 
     useEffect(() => {
