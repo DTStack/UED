@@ -63,9 +63,6 @@ const Article = (data) => {
         setPage('1')
         setTagId(tag.tag_id === tag_id ? '' : tag.tag_id)
     }
-    const handleJump = (url) => {
-        window.open(url)
-    }
 
     const handlePrev = () => {
         if (+page > 1) {
@@ -106,11 +103,11 @@ const Article = (data) => {
                                 articleList.map(article => {
                                     return (
                                         <div className={styles.articleItem} key={article.article_id}>
-                                            <div className={styles.title} onClick={() => handleJump(article.url)}>{article.title}</div>
+                                            <a className={styles.title} href={article.url} target='_blank' rel="nofollow">{article.title}</a>
                                             <div className={styles.content}>{article.brief_content}</div>
                                             <div className={styles.row}>
                                                 <div className={styles.item}>{article.create_date} {article.create_time}</div>
-                                                <div className={styles.username} onClick={() => handleJump('https://juejin.cn/user/2137106333053912')}>{article.user_name}</div>
+                                                <a className={styles.username} href={'https://juejin.cn/user/2137106333053912'} target='_blank' rel="nofollow">{article.user_name}</a>
                                                 <div className={styles.item}><img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/eye.svg`} alt=""/>{article.view_count}</div>
                                             </div>
                                         </div>
@@ -137,14 +134,16 @@ const Article = (data) => {
                             {
                                 OpenOriginUrl.map(url => {
                                     return (
-                                        <div
+                                        <a
                                             key={url.key}
                                             className={styles.originItem}
-                                            onClick={() => window.open(url.site)}
+                                            href={url.site}
+                                            rel="nofollow"
+                                            target="_blank"
                                         >
                                             <img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/point.svg`} alt=""/>
                                             {url.name}
-                                        </div>
+                                        </a>
                                     )
                                 })
                             }
