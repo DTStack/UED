@@ -14,6 +14,11 @@
     color: #3D446E;
     font-family: PingFangSC-Medium, PingFang SC;
   }
+  @media screen and (max-width: 750px){
+    .excerpt {
+      width: calc(100vw - 60px);
+    }
+  }
 }
 
 .content {
@@ -36,5 +41,11 @@
       color: #8B8FA8;
       font-size: 12px;
     }
+  }
+}
+
+@media screen and (max-width: 750px){
+  .content{
+    background-image: url("http://assets.dtstack.com/UEDLanding/H5/bgAbout.png");
   }
 }

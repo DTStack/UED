@@ -5,6 +5,7 @@ import Image from "next/image";
 import {AboutDoc, seo} from '@/data/doc';
 import APP_CONF from "@/data/config";
 import Head from "next/head";
+import {H5_Width} from "@/data";
 
 function Index() {
     const [bgHeight, setBgHeight] = useState('0px');
@@ -14,7 +15,9 @@ function Index() {
     })
     const backgroundHeight = (document) => {
         const Width = document.documentElement.clientWidth || document.body.clientWidth;
-        const BgHeight = (Width * 1101 / 1440) + 'px';
+        const BgHeight = Width > H5_Width
+                        ? (Width * 1101 / 1440) + 'px'
+                        : (Width * 1308/750) + 'px';
         setBgHeight(BgHeight);
     }
     return <div>
