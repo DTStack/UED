@@ -73,9 +73,14 @@
       .box{
         width: 690px;
         margin: 0 0 30px 0;
+        .subTitle {
+          font-size: 24px;
+          padding-top: 15px;
+        }
       }
     }
     .title{
+      font-size: 24px;
       padding-top: 0;
     }
   }
@@ -161,6 +166,17 @@
   .origin {
     align-content: flex-start;
     background-image: url("http://assets.dtstack.com/UEDLanding/H5/originBg.png");
+    .leftBox, .rightBox {
+      .title {
+        font-size: 30px;
+      }
+      .subTitle {
+        font-size: 24px;
+      }
+      a {
+        font-size: 24px;
+      }
+    }
     .leftBox {
       width: 690px;
       margin: 30px 0;
@@ -168,6 +184,9 @@
     .rightBox {
       width: 690px;
       height: 242px;
+      .subTitle {
+        width: 500px;
+      }
     }
   }
 }
@@ -182,5 +201,12 @@
     line-height: 20px;
     color: #8B8FA8;
     font-size: 12px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .footer {
+    .describe {
+      font-size: 24px;
+    }
   }
 }

@@ -6,6 +6,8 @@ import Image from "next/image";
 import APP_CONF from "@/data/config";
 import classNames from "classnames";
 import styles from '../styles/navHeader.module.scss';
+import {useEffect, useState} from "react";
+import {H5_Width} from "@/data";
 
 interface IProps {
     isShow: boolean;
@@ -13,6 +15,12 @@ interface IProps {
 }
 function NavHeader(props: IProps) {
     const { isShow, isFixed } = props;
+    const [H5, setH5] = useState(false);
+    useEffect(() => {
+        const Width = document.documentElement.clientWidth || document.body.clientWidth;
+        const isH5 = Width > H5_Width ? false : true;
+        setH5(isH5);
+    });
     const jumpAction = (item, menu) => {
         let jumpItem = menu.filter((value) => value.key === item.key)
         window.open(jumpItem[0].jumpUrl);
@@ -41,7 +49,7 @@ function NavHeader(props: IProps) {
                 </div>
             </Link>
             <div className={styles.rightMenu}>
-                { isShow && renderNavgitor()}
+                { (H5 || isShow) && renderNavgitor()}
             </div>
         </div>
     )

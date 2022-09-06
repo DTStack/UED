@@ -40,13 +40,13 @@ function Home() {
                 </div>
             </div>
             <div className={styles.body}>
-                <div style={{ padding: '13px 0 39px' }}>设计体系</div>
+                <div style={{ padding: '13px 0 39px', fontSize: '24px' }}>设计体系</div>
                 <div className={styles.container}>
                     {
                         DesignSystem?.map((item) => (
                             <a className={styles.box} key={item.key} href={item.jumpUrl} rel="nofollow" target="_blank">
                                 <img src={item?.imgUrl} alt=""/>
-                                <div>{item.title}</div>
+                                <div style={{ fontSize: '26px' }}>{item.title}</div>
                                 <div className={styles.subTitle}>{item.subTitle}</div>
                             </a>
                         ))
