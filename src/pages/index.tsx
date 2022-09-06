@@ -1,14 +1,16 @@
 import NavHeader from "@/components/navHeader";
 import Image from "next/image";
 import styles from '@/styles/home.module.scss';
-import {AboutDoc, DesignSystem, LeftOrigin, RightOrigin} from '@/data/doc';
+import {AboutDoc, DesignSystem, LeftOrigin, RightOrigin, seo} from '@/data/doc';
 import {useEffect, useState} from "react";
 import APP_CONF from "@/data/config";
 import {Button} from "antd";
+import Head from "next/head";
 
 function Home() {
     const [bgHeight, setBgHeight] = useState('0px');
     const [originHeight, setOriginHeight] = useState('0px');
+    const {title, keywords, description} = seo || {};
     useEffect(() => {
         homeBackgroundHeight(document);
     })
@@ -21,6 +23,12 @@ function Home() {
     }
     return (
         <div>
+            <Head>
+                <title>{title}</title>
+                <meta charSet="utf-8" />
+                <meta name="keywords" content={keywords} />
+                <meta name="description" content={description} />
+            </Head>
             <div className={styles.header} style={{ height: bgHeight }}>
                 <NavHeader isShow={true} isFixed={false}/>
                 <div className={styles.title}>
@@ -32,11 +40,11 @@ function Home() {
                 <div className={styles.container}>
                     {
                         DesignSystem?.map((item) => (
-                            <div className={styles.box} key={item.key} onClick={() => window.open(item.jumpUrl)}>
+                            <a className={styles.box} key={item.key} href={item.jumpUrl} rel="nofollow noreferrer noopener" target="_blank">
                                 <img src={item?.imgUrl} alt=""/>
                                 <div>{item.title}</div>
                                 <div className={styles.subTitle}>{item.subTitle}</div>
-                            </div>
+                            </a>
                         ))
                     }
                 </div>
@@ -50,7 +58,7 @@ function Home() {
                                 <img src={item?.imgUrl} alt=""/>
                                 <div className={styles.title}>{item.title}</div>
                                 <div className={styles.subTitle}>{item.subTitle}</div>
-                                <Button onClick={() => window.open(item.jumpUrl)} type={'link'}>{'查看详情>'}</Button>
+                                <a href={item.jumpUrl} rel="nofollow noreferrer noopener" target="_blank">{'查看详情>'}</a>
                             </div>
                         ))
                     }
@@ -63,7 +71,7 @@ function Home() {
                                 <div style={{ margin: '35px 0px' }}>
                                     <div className={styles.title}>{item.title}</div>
                                     <div className={styles.subTitle}>{item.subTitle}</div>
-                                    <Button onClick={() => window.open(item.jumpUrl)} type={'link'}>{'查看详情>'}</Button>
+                                    <a href={item.jumpUrl} rel="nofollow noreferrer noopener" target="_blank">{'查看详情>'}</a>
                                 </div>
                             </div>
                         ))

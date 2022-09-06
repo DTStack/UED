@@ -2,7 +2,8 @@ import { useEffect, useState, useRef } from 'react';
 import styles from '@/styles/article.module.scss';
 import NavHeader from "@/components/navHeader";
 import APP_CONF from "@/data/config";
-import {OpenOriginUrl} from "@/data/doc";
+import {OpenOriginUrl, seo} from "@/data/doc";
+import Head from "next/head";
 
 const Article = (data) => {
     const [tag_id, setTagId] = useState('');
@@ -14,6 +15,7 @@ const Article = (data) => {
     const [articleList, setArticleList] = useState([]);
     const firstUpdate = useRef(true);
     const pageSize = '7';
+    const {title, description, keywords} = seo || {};
 
     useEffect(() => {
         fetch('http://localhost:3002/api/getTagList')
@@ -21,7 +23,6 @@ const Article = (data) => {
             .then(res => {
                 setTagList(res.data || [])
             })
-        getArticleList();
     }, [])
 
     useEffect(() => {
@@ -62,9 +63,6 @@ const Article = (data) => {
         setPage('1')
         setTagId(tag.tag_id === tag_id ? '' : tag.tag_id)
     }
-    const handleJump = (url) => {
-        window.open(url)
-    }
 
     const handlePrev = () => {
         if (+page > 1) {
@@ -79,6 +77,12 @@ const Article = (data) => {
 
     return (
         <div className={styles.article}>
+            <Head>
+                <title>{title}</title>
+                <meta charSet="utf-8" />
+                <meta name="keywords" content={keywords} />
+                <meta name="description" content={description} />
+            </Head>
             <NavHeader isShow={true} isFixed={true}/>
             <div className={styles.totalCard}>
                 <img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/logo_big.png`} alt=""/>
@@ -99,11 +103,11 @@ const Article = (data) => {
                                 articleList.map(article => {
                                     return (
                                         <div className={styles.articleItem} key={article.article_id}>
-                                            <div className={styles.title} onClick={() => handleJump(article.url)}>{article.title}</div>
+                                            <a className={styles.title} href={article.url} target='_blank' rel="nofollow noreferrer noopener">{article.title}</a>
                                             <div className={styles.content}>{article.brief_content}</div>
                                             <div className={styles.row}>
                                                 <div className={styles.item}>{article.create_date} {article.create_time}</div>
-                                                <div className={styles.username} onClick={() => handleJump('https://juejin.cn/user/2137106333053912')}>{article.user_name}</div>
+                                                <a className={styles.username} href={'https://juejin.cn/user/2137106333053912'} target='_blank' rel="nofollow noreferrer noopener">{article.user_name}</a>
                                                 <div className={styles.item}><img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/eye.svg`} alt=""/>{article.view_count}</div>
                                             </div>
                                         </div>
@@ -130,14 +134,16 @@ const Article = (data) => {
                             {
                                 OpenOriginUrl.map(url => {
                                     return (
-                                        <div
+                                        <a
                                             key={url.key}
                                             className={styles.originItem}
-                                            onClick={() => window.open(url.site)}
+                                            href={url.site}
+                                            rel="nofollow noreferrer noopener"
+                                            target="_blank"
                                         >
                                             <img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/point.svg`} alt=""/>
                                             {url.name}
-                                        </div>
+                                        </a>
                                     )
                                 })
                             }
