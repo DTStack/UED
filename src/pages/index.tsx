@@ -40,7 +40,7 @@ function Home() {
                 <div className={styles.container}>
                     {
                         DesignSystem?.map((item) => (
-                            <a className={styles.box} key={item.key} href={item.jumpUrl} rel="nofollow" target="_blank">
+                            <a className={styles.box} key={item.key} href={item.jumpUrl} rel="nofollow noreferrer noopener" target="_blank">
                                 <img src={item?.imgUrl} alt=""/>
                                 <div>{item.title}</div>
                                 <div className={styles.subTitle}>{item.subTitle}</div>
@@ -58,7 +58,7 @@ function Home() {
                                 <img src={item?.imgUrl} alt=""/>
                                 <div className={styles.title}>{item.title}</div>
                                 <div className={styles.subTitle}>{item.subTitle}</div>
-                                <a href={item.jumpUrl} rel="nofollow" target="_blank">{'查看详情>'}</a>
+                                <a href={item.jumpUrl} rel="nofollow noreferrer noopener" target="_blank">{'查看详情>'}</a>
                             </div>
                         ))
                     }
@@ -71,7 +71,7 @@ function Home() {
                                 <div style={{ margin: '35px 0px' }}>
                                     <div className={styles.title}>{item.title}</div>
                                     <div className={styles.subTitle}>{item.subTitle}</div>
-                                    <a href={item.jumpUrl} rel="nofollow" target="_blank">{'查看详情>'}</a>
+                                    <a href={item.jumpUrl} rel="nofollow noreferrer noopener" target="_blank">{'查看详情>'}</a>
                                 </div>
                             </div>
                         ))

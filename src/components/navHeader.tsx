@@ -22,7 +22,7 @@ function NavHeader(props: IProps) {
         return menu?.map(item => {
             if(!item.children.length){
                 if(['design'].includes(item.key)) {
-                    return <a key={item.key} href={item?.jumpUrl} rel="nofollow" target="_blank">{item?.label}</a>
+                    return <a key={item.key} href={item?.jumpUrl} rel="nofollow noreferrer noopener" target="_blank">{item?.label}</a>
                 }else {
                     return <Link href={item?.jumpUrl} key={item?.key}><div>{item?.label}</div></Link>
                 }
