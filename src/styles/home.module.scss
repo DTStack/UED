@@ -25,6 +25,10 @@
   .container {
     display: flex;
     justify-content: center;
+    a{
+      text-decoration:none;
+      color: #3D446E;
+    }
 
     .box {
       width: 373px;

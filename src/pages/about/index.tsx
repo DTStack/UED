@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import NavHeader from "@/components/navHeader";
 import styles from '@/styles/about.module.scss';
 import Image from "next/image";
-import {AboutDoc} from '@/data/doc';
+import {AboutDoc, seo} from '@/data/doc';
 import APP_CONF from "@/data/config";
+import Head from "next/head";
 
 function Index() {
     const [bgHeight, setBgHeight] = useState('0px');
+    const { title, description, keywords} = seo || {};
     useEffect(() => {
         backgroundHeight(document);
     })
@@ -16,7 +18,13 @@ function Index() {
         setBgHeight(BgHeight);
     }
     return <div>
-        <NavHeader isShow={false}/>
+        <Head>
+            <title>{title}</title>
+            <meta charSet="utf-8" />
+            <meta name="keywords" content={keywords} />
+            <meta name="description" content={description} />
+        </Head>
+        <NavHeader isShow={false} isFixed={false}/>
         <div className={styles.centerBox}>
             <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/About/about_title.png`} width={180} height={39}/>
             <div className={styles.excerpt}>{AboutDoc.subtitle}</div>
