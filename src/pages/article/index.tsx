@@ -2,7 +2,9 @@ import { useEffect, useState, useRef } from 'react';
 import styles from '@/styles/article.module.scss';
 import NavHeader from "@/components/navHeader";
 import APP_CONF from "@/data/config";
-import {OpenOriginUrl, seo} from "@/data/doc";
+import { BackTop } from "antd";
+import { OpenOriginUrl, seo } from "@/data/doc";
+import { VerticalAlignTopOutlined } from '@ant-design/icons';
 import Head from "next/head";
 
 const Article = (data) => {
@@ -90,6 +92,9 @@ const Article = (data) => {
                 <p>共发布 {totalCount} 篇文章</p>
             </div>
 
+            <BackTop>
+                <VerticalAlignTopOutlined />
+            </BackTop>
             <div className={styles.articleContent}>
                 <div className={styles.articleContentBox}>
                     <div className={styles.leftBox}>
@@ -163,7 +168,7 @@ const Article = (data) => {
 export default Article
 
 export async function getServerSideProps (context) {
-    const { data } = await fetch(`http://localhost:3002/api/getArticleList`).then(res => res.json())
+    const { data } = await fetch(`http://localhost:3002/api/getArticleList?pageSize=7`).then(res => res.json())
     return {
         props: data
     }

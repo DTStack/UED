@@ -36,7 +36,7 @@
             padding-top: 22px;
             .leftBox {
                 flex: 1;
-                margin-right: 20px;
+                margin: 0 20px 20px 0;
                 background: #FFFFFF;
             }
             .rightBox {
@@ -75,7 +75,7 @@
                     width: 220px;
                     background: #FFFFFF;
                     color: #3D446E;
-                    margin-top: 20px;
+                    margin: 20px 0;
                     padding: 20px;
                     .title {
                         font-size: 16px;
@@ -177,6 +177,24 @@
                     color: #333;
                     font-size: 14px;
                     padding: 0 20px;
+                }
+            }
+        }
+    }
+
+    :global {
+        .ant-back-top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .anticon {
+                font-size: 25px;
+                color: #8B8FA8;
+                background-color: #fff;
+                padding: 10px;
+                border-radius: 50%;
+                &:hover {
+                    color: #1D78FF;
                 }
             }
         }
