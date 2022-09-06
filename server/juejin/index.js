@@ -16,7 +16,9 @@ const getJueJinArticleList = async () => {
             result = result.concat(data)
             has_more && await loop(res.data.cursor)
         }
+        console.log('掘金查询开始')
         await loop('0')
+        console.log('掘金查询完成')
 
         return result.map(item => {
             const { date: create_date, time: create_time } = getDate(item?.article_info?.ctime)
@@ -41,7 +43,7 @@ const getJueJinArticleList = async () => {
             }
         })
     } catch (error) {
-        console.error(`juejin error: ${error}`)
+        console.log(`掘金查询失败: ${error}`)
     }
 }
 
