@@ -17,7 +17,7 @@ const Article = (data) => {
     const [articleList, setArticleList] = useState([]);
     const [spinning, setSpinning] = useState(false);
     const firstUpdate = useRef(true);
-    const pageSize = '7';
+    const pageSize = '10';
     const sortTypeMenus = [
         { label: '按热度', key: '1' },
         { label: '按最新', key: '2' },
@@ -191,7 +191,7 @@ const Article = (data) => {
 export default Article
 
 export async function getServerSideProps (context) {
-    const { data } = await fetch(`http://localhost:3002/api/getArticleList?pageSize=7`).then(res => res.json())
+    const { data } = await fetch(`http://localhost:3002/api/getArticleList?pageSize=10`).then(res => res.json())
     return {
         props: data
     }

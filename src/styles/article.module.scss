@@ -42,11 +42,14 @@
         .articleContentBox {
             width: 85%;
             margin: 0px auto;
+            padding-top: 22px;
             display: flex;
             align-items: flex-start;
-            padding-top: 22px;
+            justify-content: center;
+            position: relative;
             .leftBox {
                 flex: 1;
+                max-width: 1200px;
                 margin: 0 20px 20px 0;
                 background: #FFFFFF;
             }
