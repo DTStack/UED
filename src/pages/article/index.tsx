@@ -37,8 +37,8 @@ const Article = (data) => {
     }, [tag_id, sort_type, page])
 
     // 处理文章数据
-    const handleArticleList = (data) => {
-        const { articleList = [], total, totalCount } = data
+    const handleArticleList = (obj) => {
+        const { articleList = [], total, totalCount } = obj
         setArticleList(articleList)
         setTotal(total || 0)
         setTotalCount(totalCount || 0)
@@ -175,11 +175,12 @@ const Article = (data) => {
                                 }
                             </div>
                         </div>
-                        {/* <div className={styles.pageBox}>
-                           <div className={styles.page} onClick={handlePrev}>上一页</div>
-                           <div className={styles.total}>第 {page} 页，共 {total} 篇文章</div>
-                           <div className={styles.page} onClick={handleNext}>下一页</div>
-                        </div> */}
+                    </div>
+
+                    <div className={styles.pageBox}>
+                        <div className={styles.page} onClick={handlePrev}>上一页</div>
+                        <div className={styles.total}>第 {page} 页，共 {total} 篇文章</div>
+                        <div className={styles.page} onClick={handleNext}>下一页</div>
                     </div>
                 </Spin>
             </div>
