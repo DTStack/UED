@@ -206,18 +206,4 @@
             }
         }
     }
-    }
-    @media screen and (max-width: 750px){
-        .articleContent {
-            .articleContentBox {
-                width: 92%;
-                .leftBox {
-                    margin-right: 0;
-                }
-                .rightBox {
-                    display: none;
-                }
-            }
-        }
-    }
 }
