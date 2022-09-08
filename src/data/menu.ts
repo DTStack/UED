@@ -7,21 +7,21 @@ const menu = [
         name: 'home',
         label: '首页',
         children: [],
-        jumpUrl: '/',
+        jump_url: '/',
     },
     {
         key: 'article',
         name: 'article',
         label: '专栏',
         children: [],
-        jumpUrl: '/article',
+        jump_url: '/article',
     },
     {
         key: 'design',
         name: 'design',
         label: '设计体系',
         children: [],
-        jumpUrl: APP_CONF.THEME,
+        jump_url: APP_CONF.THEME,
     },
     {
         key: 'origin',
@@ -32,37 +32,37 @@ const menu = [
                 key: 'theme',
                 name: 'theme',
                 label: 'ant-design-dtinsight-theme',
-                jumpUrl: APP_CONF.THEME
+                jump_url: APP_CONF.THEME
             },
             {
                 key: 'molecule',
                 name: 'molecule',
                 label: 'Molecule',
-                jumpUrl: APP_CONF.MOLECULE
+                jump_url: APP_CONF.MOLECULE
             },
             {
                 key: 'component',
                 name: 'component',
                 label: 'dt-react-component',
-                jumpUrl: APP_CONF.COMPONENT
+                jump_url: APP_CONF.COMPONENT
             },
             {
                 key: 'taier',
                 name: 'taier',
                 label: 'Taier',
-                jumpUrl: APP_CONF.TAIER
+                jump_url: APP_CONF.TAIER
             },
             {
                 key: 'utils',
                 name: 'utils',
                 label: 'dt-utils',
-                jumpUrl: APP_CONF.DT_UTILS
+                jump_url: APP_CONF.DT_UTILS
             },
             {
                 key: 'sql-parser',
                 name: 'sql-parser',
                 label: 'dt-sql-parser',
-                jumpUrl: APP_CONF.DT_SQL_PARSER
+                jump_url: APP_CONF.DT_SQL_PARSER
             },
         ],
     },
@@ -71,7 +71,7 @@ const menu = [
         name: 'about',
         label: '关于我们',
         children: [],
-        jumpUrl: '/about'
+        jump_url: '/about'
     },
 ]
 export default menu;
