@@ -4,8 +4,8 @@ import styles from '@/styles/home.module.scss';
 import {AboutDoc, DesignSystem, LeftOrigin, RightOrigin, seo} from '@/data/doc';
 import {useEffect, useState} from "react";
 import APP_CONF from "@/data/config";
-import {Button} from "antd";
 import Head from "next/head";
+import {H5_Width} from "@/data";
 
 function Home() {
     const [bgHeight, setBgHeight] = useState('0px');
@@ -16,8 +16,12 @@ function Home() {
     })
     const homeBackgroundHeight = (document) => {
         const Width = document.documentElement.clientWidth || document.body.clientWidth;
-        const BgHeight = (Width * 658 / 1440) + 'px';
-        const originHeight = (Width * 501 / 1440) + 'px';
+        const BgHeight = Width > H5_Width
+                        ?(Width * 658 / 1440) + 'px'
+                        :(Width * 600 / 750) + 'px';
+        const originHeight = Width > H5_Width
+                            ?(Width * 501 / 1440) + 'px'
+                            :(Width * 987 / 750) + 'px';
         setBgHeight(BgHeight);
         setOriginHeight(originHeight);
     }
@@ -36,19 +40,19 @@ function Home() {
                 </div>
             </div>
             <div className={styles.body}>
-                <div style={{ padding: '13px 0 39px' }}>设计体系</div>
+                <div style={{ padding: '13px 0 39px', fontSize: '24px' }}>设计体系</div>
                 <div className={styles.container}>
                     {
                         DesignSystem?.map((item) => (
-                            <a className={styles.box} key={item.key} href={item.jumpUrl} rel="nofollow noreferrer noopener" target="_blank">
+                            <a className={styles.box} key={item.key} href={item.jumpUrl} rel="nofollow noopener noreferrer" target="_blank">
                                 <img src={item?.imgUrl} alt=""/>
-                                <div>{item.title}</div>
+                                <div style={{ fontSize: '26px' }}>{item.title}</div>
                                 <div className={styles.subTitle}>{item.subTitle}</div>
                             </a>
                         ))
                     }
                 </div>
-                <div style={{ paddingTop: '80px' }}>开源</div>
+                <div className={styles.title}>开源</div>
             </div>
             <div className={styles.origin} style={{ height: originHeight }}>
                 <div className={`${styles.left} ${styles.leftBox}`}>
@@ -58,7 +62,7 @@ function Home() {
                                 <img src={item?.imgUrl} alt=""/>
                                 <div className={styles.title}>{item.title}</div>
                                 <div className={styles.subTitle}>{item.subTitle}</div>
-                                <a href={item.jumpUrl} rel="nofollow noreferrer noopener" target="_blank">{'查看详情>'}</a>
+                                <a href={item.jumpUrl} rel="nofollow noopener noreferrer" target="_blank">{'查看详情>'}</a>
                             </div>
                         ))
                     }
@@ -71,7 +75,7 @@ function Home() {
                                 <div style={{ margin: '35px 0px' }}>
                                     <div className={styles.title}>{item.title}</div>
                                     <div className={styles.subTitle}>{item.subTitle}</div>
-                                    <a href={item.jumpUrl} rel="nofollow noreferrer noopener" target="_blank">{'查看详情>'}</a>
+                                    <a href={item.jumpUrl} rel="nofollow noopener noreferrer" target="_blank">{'查看详情>'}</a>
                                 </div>
                             </div>
                         ))

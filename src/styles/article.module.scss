@@ -25,6 +25,17 @@
             line-height: 20px;
         }
     }
+    @media screen and (max-width: 750px){
+        .totalCard {
+            margin-top: 190px;
+            height: 318px;
+            background-image: url("http://assets.dtstack.com/UEDLanding/H5/articleBg.png");
+            img {
+                margin-top: 60px;
+                margin-bottom: 30px;
+            }
+        }
+    }
     .articleContent {
         background: #F7FBFD;
 
@@ -99,6 +110,7 @@
                     }
                 }
             }
+
             .sortBox {
                 border-bottom: 1px solid #EBECF0;
                 display: flex;
@@ -177,6 +189,19 @@
                     color: #333;
                     font-size: 14px;
                     padding: 0 20px;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 750px){
+        .articleContent {
+            .articleContentBox {
+                width: 92%;
+                .leftBox {
+                    margin-right: 0;
+                }
+                .rightBox {
+                    display: none;
                 }
             }
         }

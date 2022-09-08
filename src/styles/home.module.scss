@@ -12,6 +12,11 @@
     transform: translate(-50%, -50%);
   }
 }
+@media screen and (max-width: 750px){
+  .header {
+    background-image: url("http://assets.dtstack.com/UEDLanding/H5/homeBg.png");
+  }
+}
 
 .body {
   height: 518px;
@@ -55,6 +60,30 @@
       box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
     }
   }
+  .title {
+    padding-top: 80px;
+  }
+}
+@media screen and (max-width: 750px){
+  .body {
+    height: 1068px;
+    margin-bottom: 30px;
+    .container {
+      flex-wrap: wrap;
+      .box{
+        width: 690px;
+        margin: 0 0 30px 0;
+        .subTitle {
+          font-size: 24px;
+          padding-top: 15px;
+        }
+      }
+    }
+    .title{
+      font-size: 24px;
+      padding-top: 0;
+    }
+  }
 }
 
 .origin {
@@ -65,6 +94,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   font-family: PingFangSC-Semibold, PingFang SC;
 
   .left, .right {
@@ -132,6 +162,34 @@
     margin-bottom: 40px;
   }
 }
+@media screen and (max-width: 750px){
+  .origin {
+    align-content: flex-start;
+    background-image: url("http://assets.dtstack.com/UEDLanding/H5/originBg.png");
+    .leftBox, .rightBox {
+      .title {
+        font-size: 30px;
+      }
+      .subTitle {
+        font-size: 24px;
+      }
+      a {
+        font-size: 24px;
+      }
+    }
+    .leftBox {
+      width: 690px;
+      margin: 30px 0;
+    }
+    .rightBox {
+      width: 690px;
+      height: 242px;
+      .subTitle {
+        width: 500px;
+      }
+    }
+  }
+}
 
 .footer {
   height: 180px;
@@ -143,5 +201,12 @@
     line-height: 20px;
     color: #8B8FA8;
     font-size: 12px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .footer {
+    .describe {
+      font-size: 24px;
+    }
   }
 }

@@ -9,6 +9,7 @@
 
     .subtitle {
       margin-left: 17px;
+      margin-bottom: 0px;
       font-size: 20px;
       font-family: MiSans-Medium, MiSans;
       font-weight: 500;
@@ -32,6 +33,23 @@
     }
   }
 }
+
+@media screen and (max-width: 750px){
+  .nav{
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 30px 0;
+    .leftMenu {
+      .subtitle {
+        font-size: 24px;
+      }
+    }
+    .rightMenu {
+      margin-top: 40px;
+      font-size: 24px;
+    }
+  }
+}
 .fixedNav {
   background: #FFFFFF;
   position: fixed;
@@ -39,6 +57,7 @@
   width: 100%;
   box-shadow: 0 4px 4px 0 rgba(61,68,110,0.04);
 }
+
 .menu {
   width: 210px;
   height: 300px;
@@ -55,4 +74,3 @@
     }
   }
 }
-
