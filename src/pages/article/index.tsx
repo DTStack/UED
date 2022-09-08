@@ -2,9 +2,9 @@ import { useEffect, useState, useRef } from 'react';
 import styles from '@/styles/article.module.scss';
 import NavHeader from "@/components/navHeader";
 import APP_CONF from "@/data/config";
-import { Menu, Spin, BackTop } from "antd";
+import { Dropdown, Space, Menu, Spin, BackTop } from "antd";
 import { OpenOriginUrl, seo } from "@/data/doc";
-import { VerticalAlignTopOutlined } from '@ant-design/icons';
+import { CaretDownOutlined, VerticalAlignTopOutlined } from '@ant-design/icons';
 import Head from "next/head";
 
 const Article = (data) => {
@@ -18,6 +18,10 @@ const Article = (data) => {
     const [spinning, setSpinning] = useState(false);
     const firstUpdate = useRef(true);
     const pageSize = '7';
+    const sortTypeMenus = [
+        { label: '按热度', key: '1' },
+        { label: '按最新', key: '2' },
+    ]
     const {title, description, keywords} = seo || {};
 
     useEffect(() => {
@@ -105,9 +109,19 @@ const Article = (data) => {
                     <div className={styles.articleContentBox}>
                         <div className={styles.leftBox}>
                             <div className={styles.sortBox}>
-                                <div>文章列表</div>
-                                {/* <div className={`${styles.sortItem} ${sort_type === '2' ? styles.sortItemActive : ''}`} onClick={() => handleSelectSortType('2')}>按最新</div>
-                                <div className={`${styles.sortItem} ${sort_type === '1' ? styles.sortItemActive : ''}`} onClick={() => handleSelectSortType('1')}>按热度</div> */}
+                                <div className={styles.title}>文章列表</div>
+
+                                <Dropdown
+                                    overlay={
+                                        (<Menu items={sortTypeMenus} onClick={(item) => handleSelectSortType(item.key)} className={styles.typeMenu} />)
+                                    }
+                                    trigger={['click']}
+                                >
+                                    <Space className={styles.typeSpace}>
+                                        {sortTypeMenus.find(item => item.key === sort_type)?.label}
+                                        <CaretDownOutlined />
+                                    </Space>
+                                </Dropdown>
                             </div>
                             <div className={styles.articleBox}>
                                 {

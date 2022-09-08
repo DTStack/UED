@@ -113,21 +113,19 @@
 
             .sortBox {
                 border-bottom: 1px solid #EBECF0;
-                display: flex;
-                flex-wrap: wrap;
                 height: 53px;
                 line-height: 53px;
                 padding: 0 20px;
-                .sortItem {
-                    padding: 4px 20px;
-                    border-bottom: 1px #eee solid;
-                    margin: 0 10px 10px 0;
-                    user-select: none;
-                    cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                .title {
+                    color: #3D446E;
+                    font-size: 16px;
+                    font-weight: 600;
                 }
-                .sortItemActive {
-                    color: rgb(19, 183, 243);
-                    border-bottom: 1px rgb(19, 183, 243) solid;
+                .typeSpace {
+                    color: #3D446E;
+                    cursor: pointer;
                 }
             }
 
@@ -222,6 +220,25 @@
                     color: #1D78FF;
                 }
             }
+        }
+    }
+}
+
+.typeMenu {
+    width: 90px;
+    height: 100px;
+    border-radius: 6px;
+    text-align: center;
+    letter-spacing: 1px;
+    :global {
+        .ant-dropdown-menu-item:first-child {
+            margin-top: 6px;
+        }
+        .ant-dropdown-menu-item {
+            line-height: 32px;
+        }
+        .ant-dropdown-menu-item:hover {
+            background: #F1F9FE;
         }
     }
 }
