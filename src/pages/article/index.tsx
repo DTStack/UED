@@ -103,11 +103,11 @@ const Article = (data) => {
                                 articleList.map(article => {
                                     return (
                                         <div className={styles.articleItem} key={article.article_id}>
-                                            <a className={styles.title} href={article.url} target='_blank' rel="nofollow">{article.title}</a>
+                                            <a className={styles.title} href={article.url} target='_blank' rel="nofollow noopener noreferrer">{article.title}</a>
                                             <div className={styles.content}>{article.brief_content}</div>
                                             <div className={styles.row}>
                                                 <div className={styles.item}>{article.create_date} {article.create_time}</div>
-                                                <a className={styles.username} href={'https://juejin.cn/user/2137106333053912'} target='_blank' rel="nofollow">{article.user_name}</a>
+                                                <a className={styles.username} href={'https://juejin.cn/user/2137106333053912'} target='_blank' rel="nofollow noopener noreferrer">{article.user_name}</a>
                                                 <div className={styles.item}><img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/eye.svg`} alt=""/>{article.view_count}</div>
                                             </div>
                                         </div>
@@ -138,7 +138,7 @@ const Article = (data) => {
                                             key={url.key}
                                             className={styles.originItem}
                                             href={url.site}
-                                            rel="nofollow"
+                                            rel="nofollow noopener noreferrer"
                                             target="_blank"
                                         >
                                             <img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/point.svg`} alt=""/>
