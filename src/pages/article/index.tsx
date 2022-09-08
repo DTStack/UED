@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import styles from '@/styles/article.module.scss';
 import NavHeader from "@/components/navHeader";
 import APP_CONF from "@/data/config";
-import { BackTop } from "antd";
+import { Menu, Spin, BackTop } from "antd";
 import { OpenOriginUrl, seo } from "@/data/doc";
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
 import Head from "next/head";
@@ -15,6 +15,7 @@ const Article = (data) => {
     const [totalCount, setTotalCount] = useState(0);
     const [tagList, setTagList] = useState([]);
     const [articleList, setArticleList] = useState([]);
+    const [spinning, setSpinning] = useState(false);
     const firstUpdate = useRef(true);
     const pageSize = '7';
     const {title, description, keywords} = seo || {};
@@ -47,6 +48,7 @@ const Article = (data) => {
             tag_id,
             sort_type,
         }
+        setSpinning(true)
         fetch(`http://localhost:3002/api/getArticleList?${new URLSearchParams(params).toString()}`)
             .then(res => res.json())
             .then(res => {
@@ -54,6 +56,9 @@ const Article = (data) => {
                 setArticleList(articleList || [])
                 setTotal(total || 0)
                 setTotalCount(totalCount || 0)
+            })
+            .finally(() => {
+                setSpinning(false)
             })
     }
 
@@ -96,70 +101,72 @@ const Article = (data) => {
                 <VerticalAlignTopOutlined />
             </BackTop>
             <div className={styles.articleContent}>
-                <div className={styles.articleContentBox}>
-                    <div className={styles.leftBox}>
-                        <div className={styles.sortBox}>
-                            <div>文章列表</div>
-                            {/*<div className={`${styles.sortItem} ${sort_type === '2' ? styles.sortItemActive : ''}`} onClick={() => handleSelectSortType('2')}>按最新</div>*/}
-                            {/*<div className={`${styles.sortItem} ${sort_type === '1' ? styles.sortItemActive : ''}`} onClick={() => handleSelectSortType('1')}>按热度</div>*/}
-                        </div>
-                        <div className={styles.articleBox}>
-                            {
-                                articleList.map(article => {
-                                    return (
-                                        <div className={styles.articleItem} key={article.article_id}>
-                                            <a className={styles.title} href={article.url} target='_blank' rel="nofollow noopener noreferrer">{article.title}</a>
-                                            <div className={styles.content}>{article.brief_content}</div>
-                                            <div className={styles.row}>
-                                                <div className={styles.item}>{article.create_date} {article.create_time}</div>
-                                                <a className={styles.username} href={'https://juejin.cn/user/2137106333053912'} target='_blank' rel="nofollow noopener noreferrer">{article.user_name}</a>
-                                                <div className={styles.item}><img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/eye.svg`} alt=""/>{article.view_count}</div>
+                <Spin spinning={spinning}>
+                    <div className={styles.articleContentBox}>
+                        <div className={styles.leftBox}>
+                            <div className={styles.sortBox}>
+                                <div>文章列表</div>
+                                {/* <div className={`${styles.sortItem} ${sort_type === '2' ? styles.sortItemActive : ''}`} onClick={() => handleSelectSortType('2')}>按最新</div>
+                                <div className={`${styles.sortItem} ${sort_type === '1' ? styles.sortItemActive : ''}`} onClick={() => handleSelectSortType('1')}>按热度</div> */}
+                            </div>
+                            <div className={styles.articleBox}>
+                                {
+                                    articleList.map(article => {
+                                        return (
+                                            <div className={styles.articleItem} key={article.article_id}>
+                                                <a className={styles.title} href={article.url} target='_blank' rel="nofollow noopener noreferrer">{article.title}</a>
+                                                <div className={styles.content}>{article.brief_content}</div>
+                                                <div className={styles.row}>
+                                                    <div className={styles.item}>{article.create_date} {article.create_time}</div>
+                                                    <a className={styles.username} href={'https://juejin.cn/user/2137106333053912'} target='_blank' rel="nofollow noopener noreferrer">{article.user_name}</a>
+                                                    <div className={styles.item}><img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/eye.svg`} alt=""/>{article.view_count}</div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    )
-                                })
-                            }
+                                        )
+                                    })
+                                }
+                            </div>
                         </div>
+                        <div className={styles.rightBox}>
+                            <div className={styles.tagBox}>
+                                <div className={styles.title}>相关分类</div>
+                                {
+                                    tagList?.map(tag => {
+                                        return (
+                                            <div className={`${styles.tagItem} ${ tag.tag_id === tag_id ? styles.tagItemActive : '' }`} key={tag.tag_id} onClick={(item) => handleSelectTag(item, tag)}>
+                                                {tag.tag_name} {tag.count}
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                            <div className={styles.originBox}>
+                                <div className={styles.title}>社区</div>
+                                {
+                                    OpenOriginUrl.map(url => {
+                                        return (
+                                            <a
+                                                key={url.key}
+                                                className={styles.originItem}
+                                                href={url.site}
+                                                rel="nofollow noopener noreferrer"
+                                                target="_blank"
+                                            >
+                                                <img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/point.svg`} alt=""/>
+                                                {url.name}
+                                            </a>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                        {/*<div className={styles.pageBox}>*/}
+                        {/*    <div className={styles.page} onClick={handlePrev}>上一页</div>*/}
+                        {/*    <div className={styles.total}>第 {page} 页，共 {total} 篇文章</div>*/}
+                        {/*    <div className={styles.page} onClick={handleNext}>下一页</div>*/}
+                        {/*</div>*/}
                     </div>
-                    <div className={styles.rightBox}>
-                        <div className={styles.tagBox}>
-                            <div className={styles.title}>相关分类</div>
-                            {
-                                tagList?.map(tag => {
-                                    return (
-                                        <div className={`${styles.tagItem} ${ tag.tag_id === tag_id ? styles.tagItemActive : '' }`} key={tag.tag_id} onClick={(item) => handleSelectTag(item, tag)}>
-                                            {tag.tag_name} {tag.count}
-                                        </div>
-                                    )
-                                })
-                            }
-                        </div>
-                        <div className={styles.originBox}>
-                            <div className={styles.title}>社区</div>
-                            {
-                                OpenOriginUrl.map(url => {
-                                    return (
-                                        <a
-                                            key={url.key}
-                                            className={styles.originItem}
-                                            href={url.site}
-                                            rel="nofollow noopener noreferrer"
-                                            target="_blank"
-                                        >
-                                            <img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/point.svg`} alt=""/>
-                                            {url.name}
-                                        </a>
-                                    )
-                                })
-                            }
-                        </div>
-                    </div>
-                    {/*<div className={styles.pageBox}>*/}
-                    {/*    <div className={styles.page} onClick={handlePrev}>上一页</div>*/}
-                    {/*    <div className={styles.total}>第 {page} 页，共 {total} 篇文章</div>*/}
-                    {/*    <div className={styles.page} onClick={handleNext}>下一页</div>*/}
-                    {/*</div>*/}
-                </div>
+                </Spin>
             </div>
         </div>
     )
