@@ -16,7 +16,15 @@ const articleSchema = new Schema({
     view_count: Number,
     digg_count: Number,
     comment_count: Number,
-    title: String,
+    title: {
+        type: String,
+        validate: {
+            validator: (title) => {
+                return title;
+            },
+            message: '文章数据有误，请检查日志',
+        }
+    },
     brief_content: String,
     create_date: String,
     create_time: String,
@@ -57,8 +65,9 @@ const insertArticles = async (articleList) => {
         await Article.updateMany({ isDelete: 0 }, { $set: { isDelete: 1, updateTime: getDateStr() } })
         await Article.insertMany(articleList)
         await Article.deleteMany({ isDelete: 1 })
+        console.log('文章数据保存成功')
     } catch (error) {
-        console.log('insertArticles error: ', error)
+        console.log('文章数据保存失败: ', error)
         throw error
     }
 }
@@ -69,8 +78,9 @@ const insertTags = async (tagList) => {
         await Tag.updateMany({ isDelete: 0 }, { $set: { isDelete: 1, updateTime: getDateStr() } })
         await Tag.insertMany(tagList)
         await Tag.deleteMany({ isDelete: 1 })
+        console.log('文章标签数据保存成功')
     } catch (error) {
-        console.log('insertTags error: ', error)
+        console.log('文章标签数据保存失败: ', error)
         throw error
     }
 }
@@ -80,6 +90,7 @@ const updateArticleList = async () => {
     try {
         // 保存文章列表
         const articleList = await getJueJinArticleList()
+        if (!articleList.length) return
         await insertArticles(articleList)
 
         // 保存标签列表
