@@ -16,6 +16,8 @@ const Article = (data) => {
     const [tagList, setTagList] = useState([]);
     const [articleList, setArticleList] = useState([]);
     const [spinning, setSpinning] = useState(false);
+    const [clearArticle, setClearArticle] = useState(false);
+    const [hasMore, setHasMore] = useState(false);
     const firstUpdate = useRef(true);
     const pageSize = '10';
     const sortTypeMenus = [
@@ -38,10 +40,13 @@ const Article = (data) => {
 
     // 处理文章数据
     const handleArticleList = (obj) => {
-        const { articleList = [], total, totalCount } = obj
-        setArticleList(articleList)
+        const { result = [], total, totalCount } = obj
+        const list = (clearArticle ? result : articleList.concat(result)) || []
+        setArticleList(list)
         setTotal(total || 0)
         setTotalCount(totalCount || 0)
+        setHasMore(+total > list.length)
+        setClearArticle(false)
     }
 
     const getArticleList = () => {
@@ -70,25 +75,34 @@ const Article = (data) => {
     const handleSelectSortType = (sort_type) => {
         setPage('1')
         setSortType(sort_type)
+        setClearArticle(true)
     }
     const handleSelectTag = (item, tag) => {
         setPage('1')
         setTagId(tag.tag_id === tag_id ? '' : tag.tag_id)
+        setClearArticle(true)
     }
 
-    const handlePrev = () => {
-        if (+page > 1) {
-            setPage(`${+page - 1}`)
-        }
-    }
+    // 下一页
     const handleNext = () => {
         if (+page < Math.ceil(total / +pageSize)) {
             setPage(`${+page + 1}`)
         }
     }
 
+    const handleScroll = (e) => {
+        const scrollTop = e.target.scrollTop
+        const windowHeight = e.target.offsetHeight
+        const contentHeight = document.getElementById('articleContent')?.offsetHeight + 80 + 226 // 内容高度，80 是顶部内容，226 是名称图片内容
+
+        if (hasMore && (scrollTop + windowHeight >= contentHeight)) {
+            console.log('下一页')
+            handleNext()
+        }
+    }
+
     return (
-        <div className={styles.article}>
+        <div className={styles.article} onScroll={handleScroll}>
             <Head>
                 <title>{title}</title>
                 <meta charSet="utf-8" />
@@ -105,7 +119,7 @@ const Article = (data) => {
             <BackTop>
                 <VerticalAlignTopOutlined />
             </BackTop>
-            <div className={styles.articleContent}>
+            <div id="articleContent" className={styles.articleContent}>
                 <Spin spinning={spinning}>
                     <div className={styles.articleContentBox}>
                         <div className={styles.leftBox}>
@@ -175,12 +189,6 @@ const Article = (data) => {
                                 }
                             </div>
                         </div>
-                    </div>
-
-                    <div className={styles.pageBox}>
-                        <div className={styles.page} onClick={handlePrev}>上一页</div>
-                        <div className={styles.total}>第 {page} 页，共 {total} 篇文章</div>
-                        <div className={styles.page} onClick={handleNext}>下一页</div>
                     </div>
                 </Spin>
             </div>

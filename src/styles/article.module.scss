@@ -1,4 +1,6 @@
 .article {
+    height: 100vh;
+    overflow: auto;
     .totalCard {
         height: 226px;
         margin-top: 80px;
@@ -175,25 +177,6 @@
                         }
                     }
                 }
-            }
-        }
-
-        .pageBox {
-            padding-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            .page {
-                padding: 4px 14px;
-                border-radius: 4px;
-                border: 1px #666 solid;
-                user-select: none;
-                cursor: pointer;
-            }
-            .total {
-                color: #333;
-                font-size: 14px;
-                padding: 0 20px;
             }
         }
     }

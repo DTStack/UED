@@ -127,7 +127,7 @@ const getArticleList = async (page, pageSize, sort_type, tag_id) => {
         total: allArticleList.length,
         page,
         pageSize,
-        articleList,
+        result: articleList,
     }
     return {
         code: 200,
