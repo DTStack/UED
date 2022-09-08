@@ -160,12 +160,15 @@
                             margin-bottom: 2px;
                         }
                         .username {
-                            flex: 1;
-                            padding: 0 20px;
+                            padding: 0 10px 0 20px;
                             user-select: none;
                             cursor: pointer;
                             color: #64698B;
                             text-decoration: none;
+                        }
+                        .viewCount {
+                            flex: 1;
+                            text-align: right;
                         }
                     }
                 }

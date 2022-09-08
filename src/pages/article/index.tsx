@@ -36,13 +36,17 @@ const Article = (data) => {
         getArticleList();
     }, [tag_id, sort_type, page])
 
+    // 处理文章数据
+    const handleArticleList = (data) => {
+        const { articleList = [], total, totalCount } = data
+        setArticleList(articleList)
+        setTotal(total || 0)
+        setTotalCount(totalCount || 0)
+    }
+
     const getArticleList = () => {
         if (firstUpdate.current) {
-            const { articleList, total, totalCount } = data
-            setArticleList(articleList || [])
-            setTotal(total || 0)
-            setTotalCount(totalCount || 0)
-
+            handleArticleList(data)
             firstUpdate.current = false
             return
         }
@@ -56,10 +60,7 @@ const Article = (data) => {
         fetch(`http://localhost:3002/api/getArticleList?${new URLSearchParams(params).toString()}`)
             .then(res => res.json())
             .then(res => {
-                const { articleList, total, totalCount } = res.data
-                setArticleList(articleList || [])
-                setTotal(total || 0)
-                setTotalCount(totalCount || 0)
+                handleArticleList(res.data)
             })
             .finally(() => {
                 setSpinning(false)
@@ -131,9 +132,9 @@ const Article = (data) => {
                                                 <a className={styles.title} href={article.url} target='_blank' rel="nofollow noopener noreferrer">{article.title}</a>
                                                 <div className={styles.content}>{article.brief_content}</div>
                                                 <div className={styles.row}>
-                                                    <div className={styles.item}>{article.create_date} {article.create_time}</div>
+                                                    <div>{article.create_date} {article.create_time}</div>
                                                     <a className={styles.username} href={'https://juejin.cn/user/2137106333053912'} target='_blank' rel="nofollow noopener noreferrer">{article.user_name}</a>
-                                                    <div className={styles.item}><img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/eye.svg`} alt=""/>{article.view_count}</div>
+                                                    <div className={styles.viewCount}><img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/eye.svg`} alt=""/>{article.view_count}</div>
                                                 </div>
                                             </div>
                                         )
@@ -174,11 +175,11 @@ const Article = (data) => {
                                 }
                             </div>
                         </div>
-                        {/*<div className={styles.pageBox}>*/}
-                        {/*    <div className={styles.page} onClick={handlePrev}>上一页</div>*/}
-                        {/*    <div className={styles.total}>第 {page} 页，共 {total} 篇文章</div>*/}
-                        {/*    <div className={styles.page} onClick={handleNext}>下一页</div>*/}
-                        {/*</div>*/}
+                        {/* <div className={styles.pageBox}>
+                           <div className={styles.page} onClick={handlePrev}>上一页</div>
+                           <div className={styles.total}>第 {page} 页，共 {total} 篇文章</div>
+                           <div className={styles.page} onClick={handleNext}>下一页</div>
+                        </div> */}
                     </div>
                 </Spin>
             </div>
