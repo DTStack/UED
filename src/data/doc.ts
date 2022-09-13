@@ -35,29 +35,41 @@ export const DesignSystem = [
     }
 ]
 
-export const LeftOrigin = [
+export const OriginList = [
     {
         key: 'molecule',
         imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/molecule.png`,
         title: 'Molecule',
-        subTitle: '一个轻量级的 Web IDE UI 框架。',
+        subTitle: '一个轻量级的 Web IDE UI 框架',
         jump_url: APP_CONF.MOLECULE,
-    }
-]
-export const RightOrigin = [
+    },
     {
         key: 'Taier',
-        imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/Taier.png`,
+        imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/taier.png`,
         title: 'Taier',
-        subTitle: '大数据平台-分布式任务调度系统。',
+        subTitle: '大数据平台-分布式任务调度系统',
         jump_url: APP_CONF.TAIER,
     },
     {
         key: 'doraemon',
         imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/doraemon.png`,
         title: 'Doraemon',
-        subTitle: '一个帮你整理日常开发、配置、代理服务、主机资源的管理工具。',
+        subTitle: '一个帮你整理日常开发、配置、代理服务、主机资源的管理工具',
         jump_url: APP_CONF.DORAEMON
+    },
+    {
+        key: 'dt-utils',
+        imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/dt-utils.png`,
+        title: 'dt-utils',
+        subTitle: '袋鼠云实用工具库',
+        jump_url: APP_CONF.DT_UTILS
+    },
+    {
+        key: 'dt-sql-parser',
+        imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/dt-sql-parser.png`,
+        title: 'dt-sql-parser',
+        subTitle: '一个针对大数据领域的 SQL Parser 项目',
+        jump_url: APP_CONF.DT_SQL_PARSER
     }
 ]
 
