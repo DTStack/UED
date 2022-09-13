@@ -3,24 +3,12 @@ import Jumper from "@/components/jumper";
 import Image from "next/image";
 import styles from '@/styles/home.module.scss';
 import {AboutDoc, DesignSystem, OriginList, seo} from '@/data/doc';
-import {useEffect, useState} from "react";
 import APP_CONF from "@/data/config";
 import Head from "next/head";
-import {H5_Width} from "@/data";
 
 function Home() {
-    const [bgHeight, setBgHeight] = useState('0px');
     const {title, keywords, description} = seo || {};
-    useEffect(() => {
-        homeBackgroundHeight(document);
-    })
-    const homeBackgroundHeight = (document) => {
-        const Width = document.documentElement.clientWidth || document.body.clientWidth;
-        const BgHeight = Width > H5_Width
-                        ?(Width * 658 / 1440) + 'px'
-                        :(Width * 600 / 750) + 'px';
-        setBgHeight(BgHeight);
-    }
+
     return (
         <div>
             <Head>
@@ -29,10 +17,19 @@ function Home() {
                 <meta name="keywords" content={keywords} />
                 <meta name="description" content={description} />
             </Head>
-            <div className={styles.header} style={{ height: bgHeight }}>
+            <div className={styles.header}>
                 <NavHeader isShow={true} isFixed={false}/>
-                <div className={styles.title}>
-                    <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/home_title.png`} width={423} height={39}/>
+                {/* <div className={styles.title}>
+                    <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/home_title.png`} width={423} height={39} alt="" />
+                </div> */}
+                <div className={styles.topImgBox}>
+                    <img className={`${styles.titleImg} ${styles.noHover}`} src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/home_title.png`} alt="" />
+                    <img className={styles.dImg} src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/home_d.png`} alt="" />
+                    <img className={styles.tImg} src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/home_t.png`} alt="" />
+                    <img className={styles.uImg} src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/home_u.png`} alt="" />
+                    <img className={styles.eImg} src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/home_e.png`} alt="" />
+                    <img className={styles.bigImg} src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/home_big_ball.png`} alt="" />
+                    <img className={styles.smallImg} src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/home_small_ball.png`} alt="" />
                 </div>
             </div>
             <div className={styles.body}>
@@ -44,7 +41,7 @@ function Home() {
                         {
                             DesignSystem?.map((item) => (
                                 <a className={styles.box} key={item.key} href={item.jump_url} rel="nofollow noopener noreferrer" target="_blank">
-                                    <img src={item?.imgUrl} alt=""/>
+                                    <img src={item?.imgUrl} alt="" />
                                     <div style={{ fontSize: '26px' }}>{item.title}</div>
                                     <div className={styles.subTitle}>{item.subTitle}</div>
                                 </a>
