@@ -23,16 +23,16 @@ function NavHeader(props: IProps) {
     });
     const jumpAction = (item, menu) => {
         let jumpItem = menu.filter((value) => value.key === item.key)
-        window.open(jumpItem[0].jumpUrl);
+        window.open(jumpItem[0].jump_url);
     }
     const content = (menu) => <Menu items={menu} onClick={(item) => jumpAction(item, menu)} className={styles.menu}/>
     const renderNavgitor = () => {
         return menu?.map(item => {
             if(!item.children.length){
                 if(['design'].includes(item.key)) {
-                    return <a key={item.key} href={item?.jumpUrl} rel="nofollow noopener noreferrer" target="_blank">{item?.label}</a>
+                    return <a key={item.key} href={item?.jump_url} rel="nofollow noopener noreferrer" target="_blank">{item?.label}</a>
                 }else {
-                    return <Link href={item?.jumpUrl} key={item?.key}><div>{item?.label}</div></Link>
+                    return <Link href={item?.jump_url} key={item?.key}><div>{item?.label}</div></Link>
                 }
             }
             return <Dropdown overlay={content(item.children)} key={item.key} trigger={['click']}>
