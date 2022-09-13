@@ -1,0 +1,11 @@
+.jumper {
+    width: 100%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: transform 0.3s, opacity 0.3s;
+
+    &:global(.jumperActive) {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

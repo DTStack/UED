@@ -1,4 +1,5 @@
 import NavHeader from "@/components/navHeader";
+import Jumper from "@/components/jumper";
 import Image from "next/image";
 import styles from '@/styles/home.module.scss';
 import {AboutDoc, DesignSystem, LeftOrigin, RightOrigin, seo} from '@/data/doc';
@@ -40,19 +41,25 @@ function Home() {
                 </div>
             </div>
             <div className={styles.body}>
-                <div style={{ padding: '13px 0 39px', fontSize: '24px' }}>设计体系</div>
-                <div className={styles.container}>
-                    {
-                        DesignSystem?.map((item) => (
-                            <a className={styles.box} key={item.key} href={item.jump_url} rel="nofollow noopener noreferrer" target="_blank">
-                                <img src={item?.imgUrl} alt=""/>
-                                <div style={{ fontSize: '26px' }}>{item.title}</div>
-                                <div className={styles.subTitle}>{item.subTitle}</div>
-                            </a>
-                        ))
-                    }
-                </div>
-                <div className={styles.title}>开源</div>
+                <Jumper>
+                    <div style={{ padding: '13px 0 39px', fontSize: '24px' }}>设计体系</div>
+                </Jumper>
+                <Jumper>
+                    <div className={styles.container}>
+                        {
+                            DesignSystem?.map((item) => (
+                                <a className={styles.box} key={item.key} href={item.jump_url} rel="nofollow noopener noreferrer" target="_blank">
+                                    <img src={item?.imgUrl} alt=""/>
+                                    <div style={{ fontSize: '26px' }}>{item.title}</div>
+                                    <div className={styles.subTitle}>{item.subTitle}</div>
+                                </a>
+                            ))
+                        }
+                    </div>
+                </Jumper>
+                <Jumper>
+                    <div className={styles.title}>开源</div>
+                </Jumper>
             </div>
             <div className={styles.origin} style={{ height: originHeight }}>
                 <div className={`${styles.left} ${styles.leftBox}`}>
