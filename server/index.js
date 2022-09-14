@@ -4,7 +4,7 @@ const cors = require('koa2-cors')
 const schedule = require('node-schedule')
 const router = require('./router')
 const envJson = require('./.env.json')
-const { initDB, updateArticleList } = require('./utils/mongdb')
+const { initDB, updateArticleList } = require('./utils/mongodb')
 
 // 实例化
 const app = new Koa()

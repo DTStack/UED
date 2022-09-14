@@ -4,6 +4,7 @@
   padding: 14px 0;
 
   .leftMenu {
+    cursor: pointer;
     display: flex;
     align-items: center;
 
@@ -55,6 +56,8 @@
   position: fixed;
   top: 0;
   width: 100%;
+  box-shadow: 0 4px 4px 0 rgba(61,68,110,0.04);
+  z-index: 1;
 }
 
 .menu {

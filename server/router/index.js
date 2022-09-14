@@ -1,5 +1,5 @@
 const Router = require('koa-router')
-const { updateArticleList, getArticleList, getTagList } = require('../utils/mongdb')
+const { updateArticleList, getArticleList, getTagList } = require('../utils/mongodb')
 
 const router = new Router()
 
