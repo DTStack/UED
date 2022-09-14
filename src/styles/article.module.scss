@@ -29,7 +29,7 @@
     }
     @media screen and (max-width: 750px){
         .totalCard {
-            margin-top: 190px;
+            margin-top: 180px;
             height: 318px;
             background-image: url("http://assets.dtstack.com/UEDLanding/H5/articleBg.png");
             img {
@@ -154,12 +154,19 @@
                         }
                     }
                     .content {
-                        padding: 16px 0;
+                        margin: 16px 0;
                         color: #64698B;
+                        white-space: normal;
+                        overflow: hidden; // 超出的文本隐藏
+                        text-overflow: ellipsis;    // 溢出用省略号显示
+                        display: -webkit-box; // 将对象作为弹性伸缩盒子模型显示。
+                        -webkit-box-orient: vertical; // 从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）
+                        -webkit-line-clamp: 2; // 这个属性不是css的规范属性，需要组合上面两个属性，表示显示的行数。
                     }
                     .row {
                         display: flex;
                         color: #8B8FA8;
+                        white-space: nowrap;
                         img {
                             margin-right: 8px;
                             margin-bottom: 2px;

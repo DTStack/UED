@@ -42,12 +42,13 @@
     padding: 30px 0;
     .leftMenu {
       .subtitle {
-        font-size: 24px;
+        font-size: 18px;
       }
     }
     .rightMenu {
       margin-top: 40px;
-      font-size: 24px;
+      font-size: 18px;
+      justify-content: space-around;
     }
   }
 }

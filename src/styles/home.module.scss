@@ -78,29 +78,6 @@
     40%, 60% { transform: translate3d(+4.5px, 0, 0); }
     50% { transform: translate3d(-4.5px, 0, 0); }
   }
-
-
-  .title {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    img {
-      width: 423px;
-      height: 39px;
-      -webkit-user-drag: none;
-    }
-    // transform: translate(-50%, -50%);
-    // animation: scale 10s linear infinite;
-    &:hover {
-      animation: shake 2s ease-in-out infinite;
-    }
-  }
-}
-@media screen and (max-width: 750px){
-  .header {
-    background-image: url("http://assets.dtstack.com/UEDLanding/H5/homeBg.png");
-  }
 }
 @media screen and (max-width: 750px){
   .header {
@@ -241,34 +218,6 @@
         a {
           font-size: 24px;
         }
-      }
-    }
-  }
-}
-@media screen and (max-width: 750px){
-  .origin {
-    align-content: flex-start;
-    background-image: url("http://assets.dtstack.com/UEDLanding/H5/originBg.png");
-    .leftBox, .rightBox {
-      .title {
-        font-size: 30px;
-      }
-      .subTitle {
-        font-size: 24px;
-      }
-      a {
-        font-size: 24px;
-      }
-    }
-    .leftBox {
-      width: 690px;
-      margin: 30px 0;
-    }
-    .rightBox {
-      width: 690px;
-      height: 242px;
-      .subTitle {
-        width: 500px;
       }
     }
   }
