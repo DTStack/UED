@@ -82,6 +82,9 @@
 @media screen and (max-width: 750px){
   .header {
     background-image: url("http://assets.dtstack.com/UEDLanding/H5/homeBg.png");
+    .title{
+      transform: translate(-50%, -50%);
+    }
   }
 }
 
@@ -104,7 +107,6 @@
 
     .box {
       width: 373px;
-      height: 290px;
       background: #F1F9FE;
       border-radius: 16px;
       margin-right: 40px;
@@ -120,7 +122,7 @@
         font-size: 14px;
         font-weight: 400;
         color: #64698B;
-        padding: 0 40px;
+        padding: 15px 40px;
       }
     }
     .box:hover {
@@ -133,16 +135,15 @@
 }
 @media screen and (max-width: 750px){
   .body {
-    height: 1068px;
     margin-bottom: 30px;
+    height: auto;
     .container {
       flex-wrap: wrap;
       .box{
-        width: 690px;
+        width: 80%;
         margin: 0 0 30px 0;
         .subTitle {
-          font-size: 24px;
-          padding-top: 15px;
+          font-size: 18px;
         }
       }
     }
@@ -204,19 +205,23 @@
 }
 @media screen and (max-width: 750px){
   .origin {
+    height: auto;
     align-content: flex-start;
     background-image: url("http://assets.dtstack.com/UEDLanding/H5/originBg.png");
     .originBox {
+      width: 100%;
+      justify-content: center;
       .originItem {
-        width: 690px;
+        width: 90%;
+        margin: 0 0 40px 0;
         .title {
-          font-size: 30px;
+          font-size: 24px;
         }
         .subTitle {
-          font-size: 24px;
+          font-size: 18px;
         }
         a {
-          font-size: 24px;
+          font-size: 18px;
         }
       }
     }
@@ -238,7 +243,7 @@
 @media screen and (max-width: 750px) {
   .footer {
     .describe {
-      font-size: 24px;
+      font-size: 18px;
     }
   }
 }
