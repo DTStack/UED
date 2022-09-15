@@ -83,7 +83,19 @@
   .header {
     background-image: url("http://assets.dtstack.com/UEDLanding/H5/homeBg.png");
     .title{
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
+      img {
+        width: 423px;
+        height: 39px;
+        -webkit-user-drag: none;
+      }
+      &:hover {
+        animation: shake 2s ease-in-out infinite;
+      }
     }
   }
 }

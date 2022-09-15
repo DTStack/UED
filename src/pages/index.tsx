@@ -14,7 +14,7 @@ function Home() {
 
     useEffect(() => {
         setMobile(isMobile());
-    })
+    }, [])
     return (
         <div>
             <Head>
