@@ -6,6 +6,7 @@ import { Dropdown, Space, Menu, Spin, BackTop } from "antd";
 import { OpenOriginUrl, seo } from "@/data/doc";
 import { CaretDownOutlined, VerticalAlignTopOutlined } from '@ant-design/icons';
 import Head from "next/head";
+import { isMobile } from '@/utils';
 
 const Article = (data) => {
     const [tag_id, setTagId] = useState('');
@@ -93,7 +94,8 @@ const Article = (data) => {
     const handleScroll = (e) => {
         const scrollTop = e.target.scrollTop
         const windowHeight = e.target.offsetHeight
-        const contentHeight = document.getElementById('articleContent')?.offsetHeight + 80 + 226 // 内容高度，80 是顶部内容，226 是名称图片内容
+        // 内容高度，180 是移动端顶部内容，318 是移动端名称图片内容，80 是 PC 端顶部内容，226 是 PC 端名称图片内容
+        const contentHeight = isMobile ? (document.getElementById('articleContent')?.offsetHeight + 180 + 318) : (document.getElementById('articleContent')?.offsetHeight + 80 + 226)
 
         if (hasMore && (scrollTop + windowHeight >= contentHeight)) {
             console.log('下一页')
@@ -146,7 +148,7 @@ const Article = (data) => {
                                                 <a className={styles.title} href={article.url} target='_blank' rel="nofollow noopener noreferrer">{article.title}</a>
                                                 <div className={styles.content}>{article.brief_content}</div>
                                                 <div className={styles.row}>
-                                                    <div>{article.create_date} {article.create_time}</div>
+                                                    <div>{article.create_date} { isMobile ? '' : article.create_time}</div>
                                                     <a className={styles.username} href={'https://juejin.cn/user/2137106333053912'} target='_blank' rel="nofollow noopener noreferrer">{article.user_name}</a>
                                                     <div className={styles.viewCount}><img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/eye.svg`} alt=""/>{article.view_count}</div>
                                                 </div>
