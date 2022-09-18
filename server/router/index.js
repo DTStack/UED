@@ -8,7 +8,7 @@ module.exports = app => {
     router.get('/api/updateArticleList', async (ctx) => {
         try {
             await updateArticleList()
-            ctx.body = ctx.body = {
+            ctx.body = {
                 code: 200,
                 message: '成功',
             }
