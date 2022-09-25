@@ -139,28 +139,47 @@ const Article = (data) => {
                         <div className={styles.leftBox}>
                             <div className={styles.sortBox}>
                                 <div className={styles.title}>文章列表</div>
-                                <Dropdown
-                                    overlay={
-                                        (<Menu items={sortTypeMenus} onClick={(item) => handleSelectSortType(item.key)} className={styles.typeMenu} />)
-                                    }
-                                    trigger={['click']}
-                                >
-                                    <Space className={styles.typeSpace}>
-                                        {sortTypeMenus.find(item => item.key === sort_type)?.label}
-                                        <CaretDownOutlined />
-                                    </Space>
-                                </Dropdown>
-                                <Dropdown
-                                    overlay={
-                                        (<Menu items={tagList} onClick={(item) => handleSelectTag('', {tag_id:item?.key})}></Menu>)
-                                    }
-                                    trigger={['click']}
-                                >
-                                    <Space>
-                                        {tagList.find(item => item.key === tag_type)?.label}
-                                        <CaretDownOutlined />
-                                    </Space>
-                                </Dropdown>
+                                <div>
+                                    <Dropdown
+                                        overlay={
+                                            (<Menu items={sortTypeMenus} onClick={(item) => handleSelectSortType(item.key)} className={styles.typeMenu} />)
+                                        }
+                                        trigger={['click']}
+                                    >
+                                        <Space className={styles.typeSpace}>
+                                            {sortTypeMenus.find(item => item.key === sort_type)?.label}
+                                            <CaretDownOutlined />
+                                        </Space>
+                                    </Dropdown>
+                                    {mobile && <>
+                                        <Dropdown
+                                            overlay={
+                                                (<Menu items={tagList} onClick={(item) => handleSelectTag('', {tag_id:item?.key})}></Menu>)
+                                            }
+                                            trigger={['click']}
+                                        >
+                                            <Space>
+                                                {tagList.find(item => item.key === tag_type)?.label}
+                                                <CaretDownOutlined />
+                                            </Space>
+                                        </Dropdown>
+                                        <Dropdown
+                                            overlay={
+                                                (<Menu items={OpenOriginUrl} onClick={({key}) => {
+                                                    const site = OpenOriginUrl?.find((item) => item.key === key)?.site;
+                                                    window.open(site);
+                                                }
+                                                }></Menu>)
+                                            }
+                                            trigger={['click']}
+                                        >
+                                            <Space>
+                                                社区
+                                                <CaretDownOutlined />
+                                            </Space>
+                                        </Dropdown>
+                                    </>}
+                                </div>
                             </div>
                             <div className={styles.articleBox}>
                                 {

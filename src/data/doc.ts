@@ -77,26 +77,31 @@ export const OpenOriginUrl = [
     {
         key: 'zhihu',
         name: '知乎',
+        label: '知乎',
         site: 'https://www.zhihu.com/people/dtux',
     },
     {
         key: 'juejin',
         name: '掘金',
+        label: '掘金',
         site: 'https://juejin.cn/user/2137106333053912',
     },
     {
         key: 'jianshu',
         name: '简书',
+        label: '简书',
         site: 'https://www.jianshu.com/u/747db476a6e9',
     },
     {
         key: 'cnblogs',
         name: '博客园',
+        label: '博客园',
         site: 'https://www.cnblogs.com/dtux/',
     },
     {
         key: 'segmentfault',
         name: '思否',
+        label: '思否',
         site: 'https://segmentfault.com/u/daishuyunshuzhanqianduan',
     },
 ]
