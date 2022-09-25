@@ -20,6 +20,7 @@ const Article = (data) => {
     const [clearArticle, setClearArticle] = useState(false);
     const [hasMore, setHasMore] = useState(false);
     const firstUpdate = useRef(true);
+    const [mobile, setMobile] = useState(false);
     const pageSize = '10';
     const sortTypeMenus = [
         { label: '按热度', key: '1' },
@@ -28,6 +29,7 @@ const Article = (data) => {
     const {title, description, keywords} = seo || {};
 
     useEffect(() => {
+        setMobile(isMobile(window));
         fetch('http://localhost:3002/api/getTagList')
             .then(res => res.json())
             .then(res => {
@@ -95,7 +97,7 @@ const Article = (data) => {
         const scrollTop = e.target.scrollTop
         const windowHeight = e.target.offsetHeight
         // 内容高度，180 是移动端顶部内容，318 是移动端名称图片内容，80 是 PC 端顶部内容，226 是 PC 端名称图片内容
-        const contentHeight = isMobile ? (document.getElementById('articleContent')?.offsetHeight + 180 + 318) : (document.getElementById('articleContent')?.offsetHeight + 80 + 226)
+        const contentHeight =  mobile ? (document.getElementById('articleContent')?.offsetHeight + 180 + 318) : (document.getElementById('articleContent')?.offsetHeight + 80 + 226)
 
         if (hasMore && (scrollTop + windowHeight >= contentHeight)) {
             console.log('下一页')
@@ -148,7 +150,7 @@ const Article = (data) => {
                                                 <a className={styles.title} href={article.url} target='_blank' rel="nofollow noopener noreferrer">{article.title}</a>
                                                 <div className={styles.content}>{article.brief_content}</div>
                                                 <div className={styles.row}>
-                                                    <div>{article.create_date} { isMobile ? '' : article.create_time}</div>
+                                                    <div>{article.create_date} { mobile ? '' : article.create_time}</div>
                                                     <a className={styles.username} href={'https://juejin.cn/user/2137106333053912'} target='_blank' rel="nofollow noopener noreferrer">{article.user_name}</a>
                                                     <div className={styles.viewCount}><img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/eye.svg`} alt=""/>{article.view_count}</div>
                                                 </div>
