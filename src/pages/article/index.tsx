@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import styles from '@/styles/article.module.scss';
 import NavHeader from "@/components/navHeader";
 import APP_CONF from "@/data/config";
-import { Dropdown, Space, Menu, Spin, BackTop } from "antd";
+import {Dropdown, Space, Menu, Spin, BackTop} from "antd";
 import { OpenOriginUrl, seo } from "@/data/doc";
 import { CaretDownOutlined, VerticalAlignTopOutlined } from '@ant-design/icons';
 import Head from "next/head";
@@ -28,6 +28,7 @@ const Article = (data) => {
         { label: '按最新', key: '2' },
     ]
     const {title, description, keywords} = seo || {};
+    const sortTag = tagList?.find(item => item.key === tag_type)?.label;
 
     useEffect(() => {
         setMobile(isMobile(window));
@@ -139,7 +140,7 @@ const Article = (data) => {
                         <div className={styles.leftBox}>
                             <div className={styles.sortBox}>
                                 <div className={styles.title}>文章列表</div>
-                                <div>
+                                <div className={styles.sortElement}>
                                     <Dropdown
                                         overlay={
                                             (<Menu items={sortTypeMenus} onClick={(item) => handleSelectSortType(item.key)} className={styles.typeMenu} />)
@@ -159,7 +160,7 @@ const Article = (data) => {
                                             trigger={['click']}
                                         >
                                             <Space>
-                                                {tagList.find(item => item.key === tag_type)?.label}
+                                                <div title={sortTag}>{sortTag?.slice(0, 13)}</div>
                                                 <CaretDownOutlined />
                                             </Space>
                                         </Dropdown>
