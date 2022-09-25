@@ -15,6 +15,7 @@ const Article = (data) => {
     const [total, setTotal] = useState(0);
     const [totalCount, setTotalCount] = useState(0);
     const [tagList, setTagList] = useState([]);
+    const [tag_type, setTagType] = useState('');
     const [articleList, setArticleList] = useState([]);
     const [spinning, setSpinning] = useState(false);
     const [clearArticle, setClearArticle] = useState(false);
@@ -33,7 +34,15 @@ const Article = (data) => {
         fetch('http://localhost:3002/api/getTagList')
             .then(res => res.json())
             .then(res => {
-                setTagList(res.data || [])
+                const tagList = res.data?.map((item) => {
+                    return {
+                        ...item,
+                        label: item.tag_name,
+                        key: item.tag_id,
+                    }
+                });
+                setTagType(tagList?.[0].key);
+                setTagList(tagList || []);
             })
     }, [])
 
@@ -83,7 +92,8 @@ const Article = (data) => {
     const handleSelectTag = (item, tag) => {
         setPage('1')
         setTagId(tag.tag_id === tag_id ? '' : tag.tag_id)
-        setClearArticle(true)
+        setClearArticle(true);
+        setTagType(tag.tag_id);
     }
 
     // 下一页
@@ -129,7 +139,6 @@ const Article = (data) => {
                         <div className={styles.leftBox}>
                             <div className={styles.sortBox}>
                                 <div className={styles.title}>文章列表</div>
-
                                 <Dropdown
                                     overlay={
                                         (<Menu items={sortTypeMenus} onClick={(item) => handleSelectSortType(item.key)} className={styles.typeMenu} />)
@@ -138,6 +147,17 @@ const Article = (data) => {
                                 >
                                     <Space className={styles.typeSpace}>
                                         {sortTypeMenus.find(item => item.key === sort_type)?.label}
+                                        <CaretDownOutlined />
+                                    </Space>
+                                </Dropdown>
+                                <Dropdown
+                                    overlay={
+                                        (<Menu items={tagList} onClick={(item) => handleSelectTag('', {tag_id:item?.key})}></Menu>)
+                                    }
+                                    trigger={['click']}
+                                >
+                                    <Space>
+                                        {tagList.find(item => item.key === tag_type)?.label}
                                         <CaretDownOutlined />
                                     </Space>
                                 </Dropdown>
