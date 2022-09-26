@@ -1,5 +1,5 @@
 const Router = require('koa-router')
-const { updateArticleList, getArticleList, getTagList } = require('../utils/mongdb')
+const { updateArticleList, getArticleList, getTagList } = require('../utils/mongodb')
 
 const router = new Router()
 
@@ -8,7 +8,7 @@ module.exports = app => {
     router.get('/api/updateArticleList', async (ctx) => {
         try {
             await updateArticleList()
-            ctx.body = ctx.body = {
+            ctx.body = {
                 code: 200,
                 message: '成功',
             }

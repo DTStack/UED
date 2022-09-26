@@ -4,6 +4,7 @@
   padding: 14px 0;
 
   .leftMenu {
+    cursor: pointer;
     display: flex;
     align-items: center;
 
@@ -41,12 +42,13 @@
     padding: 30px 0;
     .leftMenu {
       .subtitle {
-        font-size: 24px;
+        font-size: 18px;
       }
     }
     .rightMenu {
       margin-top: 40px;
-      font-size: 24px;
+      font-size: 18px;
+      justify-content: space-around;
     }
   }
 }
@@ -55,6 +57,8 @@
   position: fixed;
   top: 0;
   width: 100%;
+  box-shadow: 0 4px 4px 0 rgba(61,68,110,0.04);
+  z-index: 1;
 }
 
 .menu {

@@ -53,7 +53,7 @@ const Tag = mongoose.model('Tag', tagSchema, 'tag')
 const initDB = async () => {
     try {
         await mongoose.connect(url)
-        console.log('Connected successfully to mongodb by mongoose!')
+        console.log(`Connected successfully to mongodb by mongoose! DbName: ${dbName}`)
     } catch (error) {
         console.log('Connect error: ', error)
     }
@@ -127,7 +127,7 @@ const getArticleList = async (page, pageSize, sort_type, tag_id) => {
         total: allArticleList.length,
         page,
         pageSize,
-        articleList,
+        result: articleList,
     }
     return {
         code: 200,

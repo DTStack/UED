@@ -1,20 +1,102 @@
 .header {
-  background-image: url('http://assets.dtstack.com/UEDLanding/Home/home_background.png');
+  height: 680px;
+  background-image: url('http://assets.dtstack.com/UEDLanding/Home/home_bg.png');
+  // background-image: url('http://assets.dtstack.com/UEDLanding/Home/home_background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
 
-  .title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  .topImgBox {
+    position: relative;
+    .titleImg {
+      width: 423px;
+      height: 39px;
+      position: absolute;
+      top: 185px;
+      left: calc(50vw - 211px);
+    }
+    .dImg {
+      width: 400px;
+      height: 337px;
+      position: absolute;
+      top: 200px;
+      left: calc(50vw + 532px);
+      z-index: 1;
+    }
+    .tImg {
+      width: 294px;
+      height: 193px;
+      position: absolute;
+      top: 194px;
+      left: calc(50vw + 340px);
+    }
+    .uImg {
+      width: 347px;
+      height: 334px;
+      position: absolute;
+      top: 142px;
+      left: calc(50vw - 669px);
+    }
+    .eImg {
+      width: 328px;
+      height: 190px;
+      position: absolute;
+      top: 364px;
+      left: calc(50vw - 563px);
+    }
+    .bigImg {
+      width: 475px;
+      height: 382px;
+      position: absolute;
+      top: 235px;
+      left: calc(50vw - 167px);
+    }
+    .smallImg {
+      width: 246px;
+      height: 190px;
+      position: absolute;
+      top: 226px;
+      left: calc(50vw + 110px);
+    }
+    .noHover {
+      &:hover {
+        animation: none;
+      }
+    }
+    img {
+      -webkit-user-drag: none;
+      &:hover {
+        animation: shake 3s ease-in-out infinite;
+      }
+    }
+  }
+  @keyframes shake {
+    10%, 90% { transform: translate3d(-1.5px, 0, 0); }
+    20%, 80% { transform: translate3d(+3px, 0, 0); }
+    30%, 70% { transform: translate3d(-4.5px, 0, 0); }
+    40%, 60% { transform: translate3d(+4.5px, 0, 0); }
+    50% { transform: translate3d(-4.5px, 0, 0); }
   }
 }
 @media screen and (max-width: 750px){
   .header {
     background-image: url("http://assets.dtstack.com/UEDLanding/H5/homeBg.png");
+    .title{
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      img {
+        width: 423px;
+        height: 39px;
+        -webkit-user-drag: none;
+      }
+      &:hover {
+        animation: shake 2s ease-in-out infinite;
+      }
+    }
   }
 }
 
@@ -37,7 +119,6 @@
 
     .box {
       width: 373px;
-      height: 290px;
       background: #F1F9FE;
       border-radius: 16px;
       margin-right: 40px;
@@ -53,7 +134,7 @@
         font-size: 14px;
         font-weight: 400;
         color: #64698B;
-        padding: 0 40px;
+        padding: 15px 40px;
       }
     }
     .box:hover {
@@ -66,16 +147,15 @@
 }
 @media screen and (max-width: 750px){
   .body {
-    height: 1068px;
     margin-bottom: 30px;
+    height: auto;
     .container {
       flex-wrap: wrap;
       .box{
-        width: 690px;
+        width: 80%;
         margin: 0 0 30px 0;
         .subTitle {
-          font-size: 24px;
-          padding-top: 15px;
+          font-size: 18px;
         }
       }
     }
@@ -87,105 +167,74 @@
 }
 
 .origin {
+  height: 560px;
   background-image: url("http://assets.dtstack.com/UEDLanding/Home/openOrigin_bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
   font-family: PingFangSC-Semibold, PingFang SC;
-
-  .left, .right {
-    background: rgba(255, 255, 255, 0.7000);
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
-  }
-
-  .leftBox {
-    width: 580px;
-    height: 381px;
-    margin-right: 40px;
-    text-align: center;
-    transition: box-shadow .3s;
-
-    img {
-      width: 150px;
-    }
-
-    .title {
-      font-size: 30px;
-      font-weight: 600;
-      color: #3D446E;
-    }
-
-    .subTitle {
-      font-size: 14px;
-      font-weight: 400;
-      color: #64698B;
-      margin: 18px 0 40px 0;
-    }
-  }
-
-  .rightBox {
-    width: 580px;
-    height: 170px;
+  .originBox {
+    width: 1200px;
+    padding: 60px 0;
+    margin: 0 auto;
     display: flex;
-    transition: box-shadow .3s;
-
-    img {
-      width: 100px;
-      height: 100px;
-      margin: 35px 21px 35px 40px;
+    flex-wrap: wrap;
+    .originItem {
+      width: 373px;
+      height: 200px;
+      margin: 0 40px 40px 0;
+      padding: 20px;
+      transition: box-shadow .3s;
+      background: rgba(255, 255, 255, 0.7000);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      &:nth-child(3n) {
+        margin: 0 0 40px 0;
+      }
+      img {
+        width: 80px;
+        height: 80px;
+        margin-right: 20px;
+      }
+      .title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #3D446E;
+      }
+      .subTitle {
+        font-size: 14px;
+        color: #64698B;
+        margin: 12px 0;
+      }
     }
 
-    .title {
-      font-size: 20px;
-      font-weight: 600;
-      color: #3D446E;
+    .originItem:hover {
+      box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
     }
-
-    .subTitle {
-      font-size: 14px;
-      font-weight: 400;
-      color: #64698B;
-      width: 236px;
-      margin: 12px 0px;
-    }
-  }
-
-  .leftBox:hover,.rightBox:hover {
-    box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
-  }
-  .rightBox:first-child {
-    margin-bottom: 40px;
   }
 }
 @media screen and (max-width: 750px){
   .origin {
+    height: auto;
     align-content: flex-start;
     background-image: url("http://assets.dtstack.com/UEDLanding/H5/originBg.png");
-    .leftBox, .rightBox {
-      .title {
-        font-size: 30px;
-      }
-      .subTitle {
-        font-size: 24px;
-      }
-      a {
-        font-size: 24px;
-      }
-    }
-    .leftBox {
-      width: 690px;
-      margin: 30px 0;
-    }
-    .rightBox {
-      width: 690px;
-      height: 242px;
-      .subTitle {
-        width: 500px;
+    .originBox {
+      width: 100%;
+      justify-content: center;
+      .originItem {
+        width: 90%;
+        margin: 0 0 40px 0;
+        .title {
+          font-size: 24px;
+        }
+        .subTitle {
+          font-size: 18px;
+        }
+        a {
+          font-size: 18px;
+        }
       }
     }
   }
@@ -206,7 +255,7 @@
 @media screen and (max-width: 750px) {
   .footer {
     .describe {
-      font-size: 24px;
+      font-size: 18px;
     }
   }
 }
