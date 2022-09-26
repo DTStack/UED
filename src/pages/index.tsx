@@ -6,10 +6,15 @@ import {AboutDoc, DesignSystem, OriginList, seo} from '@/data/doc';
 import APP_CONF from "@/data/config";
 import Head from "next/head";
 import {isMobile} from "@/utils";
+import {useEffect, useState} from "react";
 
 function Home() {
     const {title, keywords, description} = seo || {};
+    const [mobile, setMobile] = useState(false);
 
+    useEffect(()=>{
+        setMobile(isMobile(window));
+    }, []);
     return (
         <div>
             <Head>
@@ -21,7 +26,7 @@ function Home() {
             <div className={styles.header}>
                 <NavHeader isShow={true} isFixed={false}/>
                 {
-                    isMobile ? (
+                    mobile ? (
                         <div className={styles.title}>
                             <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/home_title.png`} width={423} height={39} alt="" />
                         </div>

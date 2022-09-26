@@ -197,6 +197,13 @@
                 .rightBox {
                     display: none;
                 }
+                .sortBox{
+                    .sortElement {
+                        display: flex;
+                        width: 245px;
+                        justify-content: space-between;
+                    }
+                }
             }
         }
     }

@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import styles from '@/styles/article.module.scss';
 import NavHeader from "@/components/navHeader";
 import APP_CONF from "@/data/config";
-import { Dropdown, Space, Menu, Spin, BackTop } from "antd";
+import {Dropdown, Space, Menu, Spin, BackTop} from "antd";
 import { OpenOriginUrl, seo } from "@/data/doc";
 import { CaretDownOutlined, VerticalAlignTopOutlined } from '@ant-design/icons';
 import Head from "next/head";
@@ -15,23 +15,35 @@ const Article = (data) => {
     const [total, setTotal] = useState(0);
     const [totalCount, setTotalCount] = useState(0);
     const [tagList, setTagList] = useState([]);
+    const [tag_type, setTagType] = useState('');
     const [articleList, setArticleList] = useState([]);
     const [spinning, setSpinning] = useState(false);
     const [clearArticle, setClearArticle] = useState(false);
     const [hasMore, setHasMore] = useState(false);
     const firstUpdate = useRef(true);
+    const [mobile, setMobile] = useState(false);
     const pageSize = '10';
     const sortTypeMenus = [
         { label: '按热度', key: '1' },
         { label: '按最新', key: '2' },
     ]
     const {title, description, keywords} = seo || {};
+    const sortTag = tagList?.find(item => item.key === tag_type)?.label;
 
     useEffect(() => {
+        setMobile(isMobile(window));
         fetch('http://localhost:3002/api/getTagList')
             .then(res => res.json())
             .then(res => {
-                setTagList(res.data || [])
+                const tagList = res.data?.map((item) => {
+                    return {
+                        ...item,
+                        label: item.tag_name,
+                        key: item.tag_id,
+                    }
+                });
+                setTagType(tagList?.[0].key);
+                setTagList(tagList || []);
             })
     }, [])
 
@@ -81,7 +93,8 @@ const Article = (data) => {
     const handleSelectTag = (item, tag) => {
         setPage('1')
         setTagId(tag.tag_id === tag_id ? '' : tag.tag_id)
-        setClearArticle(true)
+        setClearArticle(true);
+        setTagType(tag.tag_id);
     }
 
     // 下一页
@@ -95,7 +108,7 @@ const Article = (data) => {
         const scrollTop = e.target.scrollTop
         const windowHeight = e.target.offsetHeight
         // 内容高度，180 是移动端顶部内容，318 是移动端名称图片内容，80 是 PC 端顶部内容，226 是 PC 端名称图片内容
-        const contentHeight = isMobile ? (document.getElementById('articleContent')?.offsetHeight + 180 + 318) : (document.getElementById('articleContent')?.offsetHeight + 80 + 226)
+        const contentHeight =  mobile ? (document.getElementById('articleContent')?.offsetHeight + 180 + 318) : (document.getElementById('articleContent')?.offsetHeight + 80 + 226)
 
         if (hasMore && (scrollTop + windowHeight >= contentHeight)) {
             console.log('下一页')
@@ -127,18 +140,47 @@ const Article = (data) => {
                         <div className={styles.leftBox}>
                             <div className={styles.sortBox}>
                                 <div className={styles.title}>文章列表</div>
-
-                                <Dropdown
-                                    overlay={
-                                        (<Menu items={sortTypeMenus} onClick={(item) => handleSelectSortType(item.key)} className={styles.typeMenu} />)
-                                    }
-                                    trigger={['click']}
-                                >
-                                    <Space className={styles.typeSpace}>
-                                        {sortTypeMenus.find(item => item.key === sort_type)?.label}
-                                        <CaretDownOutlined />
-                                    </Space>
-                                </Dropdown>
+                                <div className={styles.sortElement}>
+                                    <Dropdown
+                                        overlay={
+                                            (<Menu items={sortTypeMenus} onClick={(item) => handleSelectSortType(item.key)} className={styles.typeMenu} />)
+                                        }
+                                        trigger={['click']}
+                                    >
+                                        <Space className={styles.typeSpace}>
+                                            {sortTypeMenus.find(item => item.key === sort_type)?.label}
+                                            <CaretDownOutlined />
+                                        </Space>
+                                    </Dropdown>
+                                    {mobile && <>
+                                        <Dropdown
+                                            overlay={
+                                                (<Menu items={tagList} onClick={(item) => handleSelectTag('', {tag_id:item?.key})}></Menu>)
+                                            }
+                                            trigger={['click']}
+                                        >
+                                            <Space>
+                                                <div title={sortTag}>{sortTag?.slice(0, 13)}</div>
+                                                <CaretDownOutlined />
+                                            </Space>
+                                        </Dropdown>
+                                        <Dropdown
+                                            overlay={
+                                                (<Menu items={OpenOriginUrl} onClick={({key}) => {
+                                                    const site = OpenOriginUrl?.find((item) => item.key === key)?.site;
+                                                    window.open(site);
+                                                }
+                                                }></Menu>)
+                                            }
+                                            trigger={['click']}
+                                        >
+                                            <Space>
+                                                社区
+                                                <CaretDownOutlined />
+                                            </Space>
+                                        </Dropdown>
+                                    </>}
+                                </div>
                             </div>
                             <div className={styles.articleBox}>
                                 {
@@ -148,7 +190,7 @@ const Article = (data) => {
                                                 <a className={styles.title} href={article.url} target='_blank' rel="nofollow noopener noreferrer">{article.title}</a>
                                                 <div className={styles.content}>{article.brief_content}</div>
                                                 <div className={styles.row}>
-                                                    <div>{article.create_date} { isMobile ? '' : article.create_time}</div>
+                                                    <div>{article.create_date} { mobile ? '' : article.create_time}</div>
                                                     <a className={styles.username} href={'https://juejin.cn/user/2137106333053912'} target='_blank' rel="nofollow noopener noreferrer">{article.user_name}</a>
                                                     <div className={styles.viewCount}><img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/eye.svg`} alt=""/>{article.view_count}</div>
                                                 </div>
