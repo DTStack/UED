@@ -29,10 +29,10 @@ const menu = [
         label: '开源',
         children: [
             {
-                key: 'theme',
-                name: 'theme',
-                label: 'ant-design-dtinsight-theme',
-                jump_url: APP_CONF.THEME
+                key: 'taier',
+                name: 'taier',
+                label: 'Taier',
+                jump_url: APP_CONF.TAIER
             },
             {
                 key: 'molecule',
@@ -41,16 +41,28 @@ const menu = [
                 jump_url: APP_CONF.MOLECULE
             },
             {
+                key: 'sql-parser',
+                name: 'sql-parser',
+                label: 'dt-sql-parser',
+                jump_url: APP_CONF.DT_SQL_PARSER
+            },
+            {
                 key: 'component',
                 name: 'component',
                 label: 'dt-react-component',
                 jump_url: APP_CONF.COMPONENT
             },
             {
-                key: 'taier',
-                name: 'taier',
-                label: 'Taier',
-                jump_url: APP_CONF.TAIER
+                key: 'theme',
+                name: 'theme',
+                label: 'ant-design-dtinsight-theme',
+                jump_url: APP_CONF.THEME
+            },
+            {
+                key: 'ko',
+                name: 'ko',
+                label: 'ko',
+                jump_url: APP_CONF.KO
             },
             {
                 key: 'utils',
@@ -59,11 +71,11 @@ const menu = [
                 jump_url: APP_CONF.DT_UTILS
             },
             {
-                key: 'sql-parser',
-                name: 'sql-parser',
-                label: 'dt-sql-parser',
-                jump_url: APP_CONF.DT_SQL_PARSER
-            },
+                key: 'doraemon',
+                name: 'doraemon',
+                label: 'doraemon',
+                jump_url: APP_CONF.DORAEMON
+            }
         ],
     },
     {
