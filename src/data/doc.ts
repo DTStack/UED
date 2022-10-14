@@ -59,14 +59,14 @@ export const OriginList = [
     },
     {
       key: 'dt-react-component',
-      imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/dt-utils.png`,
+      imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/RC.png`,
       title: 'dt-react-component',
       subTitle: '基于 ant-design 的 React UI 组件库',
       jump_url: APP_CONF.COMPONENT,
     },
     {
         key: 'ko',
-        imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/dt-utils.png`,
+        imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/ko.png`,
         title: 'ko',
         subTitle: '一个速度更快、配置更灵活、使用更简单的模块打包器',
         jump_url: APP_CONF.KO,

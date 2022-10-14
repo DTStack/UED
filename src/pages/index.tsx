@@ -66,11 +66,12 @@ function Home() {
             </div>
             <div className={styles.origin}>
                 <div className={styles.originBox}>
+                    {/*<img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/origin_left.png`}/>*/}
                     {
                         OriginList?.map(item => (
                             <div className={styles.originItem} key={item.key}>
                                 <img src={item?.imgUrl} alt=""/>
-                                <div style={{ margin: '35px 0px' }}>
+                                <div style={{ margin: '16px 0px' }}>
                                     <div className={styles.title}>{item.title}</div>
                                     <div className={styles.subTitle}>{item.subTitle}</div>
                                     <a href={item.jump_url} rel="nofollow noopener noreferrer" target="_blank">{'查看详情>'}</a>
