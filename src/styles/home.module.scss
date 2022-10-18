@@ -79,6 +79,24 @@
     50% { transform: translate3d(-4.5px, 0, 0); }
   }
 }
+@media screen and (max-width: 1600px){
+  .header {
+    .topImgBox{
+      .dImg {
+        left: calc(50vw + 356px);
+      }
+      .tImg {
+        left: calc(50vw + 164px);
+      }
+      .bigImg {
+        left: calc(50vw - 343px);
+      }
+      .smallImg {
+        left: calc(50vw - 66px);
+      }
+    }
+  }
+}
 @media screen and (max-width: 750px){
   .header {
     background-image: url("http://assets.dtstack.com/UEDLanding/H5/homeBg.png");
@@ -167,35 +185,30 @@
 }
 
 .origin {
-  height: 560px;
-  background-image: url("http://assets.dtstack.com/UEDLanding/Home/openOrigin_bg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: #EBF5FD;
   font-family: PingFangSC-Semibold, PingFang SC;
+  position: relative;
   .originBox {
     width: 1200px;
-    padding: 60px 0;
+    padding: 60px 0 30px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     .originItem {
-      width: 373px;
-      height: 200px;
-      margin: 0 40px 40px 0;
+      width: 274px;
+      height: 238px;
+      margin: 0 30px 30px 0;
       padding: 20px;
       transition: box-shadow .3s;
       background: rgba(255, 255, 255, 0.7000);
       border-radius: 16px;
       backdrop-filter: blur(10px);
-      display: flex;
-      align-items: center;
-      &:nth-child(3n) {
+      &:nth-child(4n) {
         margin: 0 0 40px 0;
       }
       img {
-        width: 80px;
-        height: 80px;
+        width: 50px;
+        height: 50px;
         margin-right: 20px;
       }
       .title {

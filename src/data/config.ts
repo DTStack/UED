@@ -8,5 +8,6 @@ const APP_CONF = {
     DORAEMON: 'https://dtstack.github.io/doraemon/docsify/#/',
     IMAGE_DOMAIN: 'http://assets.dtstack.com',
     DTSTACK_URL: 'https://www.dtstack.com',
+    KO: 'https://github.com/DTStack/ko',
 }
 export default APP_CONF;
