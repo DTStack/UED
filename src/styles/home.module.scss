@@ -79,6 +79,24 @@
     50% { transform: translate3d(-4.5px, 0, 0); }
   }
 }
+@media screen and (max-width: 1600px){
+  .header {
+    .topImgBox{
+      .dImg {
+        left: calc(50vw + 356px);
+      }
+      .tImg {
+        left: calc(50vw + 164px);
+      }
+      .bigImg {
+        left: calc(50vw - 343px);
+      }
+      .smallImg {
+        left: calc(50vw - 66px);
+      }
+    }
+  }
+}
 @media screen and (max-width: 750px){
   .header {
     background-image: url("http://assets.dtstack.com/UEDLanding/H5/homeBg.png");
