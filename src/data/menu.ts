@@ -29,41 +29,53 @@ const menu = [
         label: '开源',
         children: [
             {
-                key: 'theme',
-                name: 'theme',
-                label: 'ant-design-dtinsight-theme',
-                jump_url: APP_CONF.THEME
-            },
-            {
-                key: 'molecule',
-                name: 'molecule',
-                label: 'Molecule',
-                jump_url: APP_CONF.MOLECULE
-            },
-            {
-                key: 'component',
-                name: 'component',
-                label: 'dt-react-component',
-                jump_url: APP_CONF.COMPONENT
-            },
-            {
-                key: 'taier',
-                name: 'taier',
+                key: 'Taier',
+                name: 'Taier',
                 label: 'Taier',
                 jump_url: APP_CONF.TAIER
             },
             {
-                key: 'utils',
-                name: 'utils',
+                key: 'Molecule',
+                name: 'Molecule',
+                label: 'Molecule',
+                jump_url: APP_CONF.MOLECULE
+            },
+            {
+                key: 'dt-sql-parser',
+                name: 'dt-sql-parser',
+                label: 'dt-sql-parser',
+                jump_url: APP_CONF.DT_SQL_PARSER
+            },
+            {
+                key: 'dt-react-component',
+                name: 'dt-react-component',
+                label: 'dt-react-component',
+                jump_url: APP_CONF.COMPONENT
+            },
+            {
+                key: 'ant-design-dtinsight-theme',
+                name: 'ant-design-dtinsight-theme',
+                label: 'ant-design-dtinsight-theme',
+                jump_url: APP_CONF.THEME
+            },
+            {
+                key: 'ko',
+                name: 'ko',
+                label: 'ko',
+                jump_url: APP_CONF.KO
+            },
+            {
+                key: 'dt-utils',
+                name: 'dt-utils',
                 label: 'dt-utils',
                 jump_url: APP_CONF.DT_UTILS
             },
             {
-                key: 'sql-parser',
-                name: 'sql-parser',
-                label: 'dt-sql-parser',
-                jump_url: APP_CONF.DT_SQL_PARSER
-            },
+                key: 'Doraemon',
+                name: 'Doraemon',
+                label: 'Doraemon',
+                jump_url: APP_CONF.DORAEMON
+            }
         ],
     },
     {

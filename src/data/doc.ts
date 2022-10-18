@@ -37,13 +37,6 @@ export const DesignSystem = [
 
 export const OriginList = [
     {
-        key: 'molecule',
-        imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/molecule.png`,
-        title: 'Molecule',
-        subTitle: '一个轻量级的 Web IDE UI 框架',
-        jump_url: APP_CONF.MOLECULE,
-    },
-    {
         key: 'Taier',
         imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/taier.png`,
         title: 'Taier',
@@ -51,11 +44,32 @@ export const OriginList = [
         jump_url: APP_CONF.TAIER,
     },
     {
-        key: 'doraemon',
-        imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/doraemon.png`,
-        title: 'Doraemon',
-        subTitle: '一个帮你整理日常开发、配置、代理服务、主机资源的管理工具',
-        jump_url: APP_CONF.DORAEMON
+        key: 'Molecule',
+        imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/molecule.png`,
+        title: 'Molecule',
+        subTitle: '一个轻量级的 Web IDE UI 框架',
+        jump_url: APP_CONF.MOLECULE,
+    },
+    {
+        key: 'dt-sql-parser',
+        imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/dt-sql-parser.png`,
+        title: 'dt-sql-parser',
+        subTitle: '一个针对大数据领域的 SQL Parser 项目',
+        jump_url: APP_CONF.DT_SQL_PARSER
+    },
+    {
+      key: 'dt-react-component',
+      imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/RC.png`,
+      title: 'dt-react-component',
+      subTitle: '基于 ant-design 的 React UI 组件库',
+      jump_url: APP_CONF.COMPONENT,
+    },
+    {
+        key: 'ko',
+        imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/ko.png`,
+        title: 'ko',
+        subTitle: '一个速度更快、配置更灵活、使用更简单的模块打包器',
+        jump_url: APP_CONF.KO,
     },
     {
         key: 'dt-utils',
@@ -65,12 +79,12 @@ export const OriginList = [
         jump_url: APP_CONF.DT_UTILS
     },
     {
-        key: 'dt-sql-parser',
-        imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/dt-sql-parser.png`,
-        title: 'dt-sql-parser',
-        subTitle: '一个针对大数据领域的 SQL Parser 项目',
-        jump_url: APP_CONF.DT_SQL_PARSER
-    }
+        key: 'Doraemon',
+        imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/doraemon.png`,
+        title: 'Doraemon',
+        subTitle: '一个帮你整理日常开发、配置、代理服务、主机资源的管理工具',
+        jump_url: APP_CONF.DORAEMON
+    },
 ]
 
 export const OpenOriginUrl = [
