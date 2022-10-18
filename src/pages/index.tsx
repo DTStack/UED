@@ -65,8 +65,11 @@ function Home() {
                 </Jumper>
             </div>
             <div className={styles.origin}>
+                {!mobile && (<>
+                    <img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/origin_left.png`} style={{ position: 'absolute', width:  '654px' }}/>
+                    <img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/origin_right.png`} style={{ position: 'absolute', width: '735px', right: 0 }}/>
+                </>)}
                 <div className={styles.originBox}>
-                    {/*<img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/origin_left.png`}/>*/}
                     {
                         OriginList?.map(item => (
                             <div className={styles.originItem} key={item.key}>
