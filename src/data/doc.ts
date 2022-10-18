@@ -44,7 +44,7 @@ export const OriginList = [
         jump_url: APP_CONF.TAIER,
     },
     {
-        key: 'molecule',
+        key: 'Molecule',
         imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/molecule.png`,
         title: 'Molecule',
         subTitle: '一个轻量级的 Web IDE UI 框架',
@@ -79,7 +79,7 @@ export const OriginList = [
         jump_url: APP_CONF.DT_UTILS
     },
     {
-        key: 'doraemon',
+        key: 'Doraemon',
         imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/doraemon.png`,
         title: 'Doraemon',
         subTitle: '一个帮你整理日常开发、配置、代理服务、主机资源的管理工具',

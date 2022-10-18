@@ -29,32 +29,32 @@ const menu = [
         label: '开源',
         children: [
             {
-                key: 'taier',
-                name: 'taier',
+                key: 'Taier',
+                name: 'Taier',
                 label: 'Taier',
                 jump_url: APP_CONF.TAIER
             },
             {
-                key: 'molecule',
-                name: 'molecule',
+                key: 'Molecule',
+                name: 'Molecule',
                 label: 'Molecule',
                 jump_url: APP_CONF.MOLECULE
             },
             {
-                key: 'sql-parser',
-                name: 'sql-parser',
+                key: 'dt-sql-parser',
+                name: 'dt-sql-parser',
                 label: 'dt-sql-parser',
                 jump_url: APP_CONF.DT_SQL_PARSER
             },
             {
-                key: 'component',
-                name: 'component',
+                key: 'dt-react-component',
+                name: 'dt-react-component',
                 label: 'dt-react-component',
                 jump_url: APP_CONF.COMPONENT
             },
             {
-                key: 'theme',
-                name: 'theme',
+                key: 'ant-design-dtinsight-theme',
+                name: 'ant-design-dtinsight-theme',
                 label: 'ant-design-dtinsight-theme',
                 jump_url: APP_CONF.THEME
             },
@@ -65,15 +65,15 @@ const menu = [
                 jump_url: APP_CONF.KO
             },
             {
-                key: 'utils',
-                name: 'utils',
+                key: 'dt-utils',
+                name: 'dt-utils',
                 label: 'dt-utils',
                 jump_url: APP_CONF.DT_UTILS
             },
             {
-                key: 'doraemon',
-                name: 'doraemon',
-                label: 'doraemon',
+                key: 'Doraemon',
+                name: 'Doraemon',
+                label: 'Doraemon',
                 jump_url: APP_CONF.DORAEMON
             }
         ],
