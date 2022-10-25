@@ -60,9 +60,7 @@ function Home() {
                         }
                     </div>
                 </Jumper>
-                <Jumper>
-                    <div className={styles.title}>开源</div>
-                </Jumper>
+                <div className={styles.title}>开源</div>
             </div>
             <div className={styles.origin}>
                 {!mobile && (<>
