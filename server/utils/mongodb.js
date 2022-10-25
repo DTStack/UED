@@ -105,6 +105,10 @@ const updateArticleList = async () => {
 // 查询文章列表
 const getArticleList = async (page, pageSize, sort_type, tag_id) => {
     let allArticleList = await Article.find({ isDelete: 0 })
+
+    // 过滤部分脏数据
+    allArticleList = allArticleList.filter(item => !item.url.includes('undefined'))
+
     const totalCount = allArticleList.length
 
     // 带标签查询

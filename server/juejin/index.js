@@ -13,7 +13,7 @@ const getJueJinArticleList = async () => {
             }
             const res = await axios.post('https://api.juejin.cn/content_api/v1/article/query_list', params)
             const { data, has_more } = res.data
-            result = result.concat(data)
+            data !== null && (result = result.concat(data))
             has_more && await loop(res.data.cursor)
         }
         console.log('掘金查询开始')
