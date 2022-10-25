@@ -16,7 +16,7 @@ function Home() {
         setMobile(isMobile(window));
     }, []);
     return (
-        <div>
+        <div style={{ overflowX: 'hidden' }}>
             <Head>
                 <title>{title}</title>
                 <meta charSet="utf-8" />
