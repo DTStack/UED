@@ -32,7 +32,7 @@ const Article = (data) => {
 
     useEffect(() => {
         setMobile(isMobile(window));
-        fetch('http://localhost:3002/api/getTagList')
+        fetch('/api/getTagList')
             .then(res => res.json())
             .then(res => {
                 const tagList = res.data?.map((item) => {
@@ -75,7 +75,7 @@ const Article = (data) => {
             sort_type,
         }
         setSpinning(true)
-        fetch(`http://localhost:3002/api/getArticleList?${new URLSearchParams(params).toString()}`)
+        fetch(`/api/getArticleList?${new URLSearchParams(params).toString()}`)
             .then(res => res.json())
             .then(res => {
                 handleArticleList(res.data)
