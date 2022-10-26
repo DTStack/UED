@@ -105,6 +105,10 @@ const updateArticleList = async () => {
 // 查询文章列表
 const getArticleList = async (page, pageSize, sort_type, tag_id) => {
     let allArticleList = await Article.find({ isDelete: 0 })
+
+    // 过滤部分脏数据
+    allArticleList = allArticleList.filter(item => !item.url.includes('undefined'))
+
     const totalCount = allArticleList.length
 
     // 带标签查询
@@ -114,13 +118,15 @@ const getArticleList = async (page, pageSize, sort_type, tag_id) => {
         })
     }
 
-    const start = (page - 1) * pageSize
-    let articleList = allArticleList.slice(start, start + pageSize)
-
+    let articleList = allArticleList
     // 1 按热门排序，2 按时间排序
     if (sort_type === '1') {
         articleList = articleList.sort((a, b) => b?.view_count - a?.view_count)
     }
+
+    // 先排序再分页
+    const start = (page - 1) * pageSize
+    articleList = allArticleList.slice(start, start + pageSize)
 
     const data = {
         totalCount,
