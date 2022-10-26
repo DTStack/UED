@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/DTStack/UED/compare/v0.1.0...v1.0.0) (2022-10-26)
+
+
+### Features
+
+* [#34](https://github.com/DTStack/UED/issues/34) google anylytics ([4bf186f](https://github.com/DTStack/UED/commit/4bf186f856ab70764c24ae583e1da53cc88d2488))
+* api url ([5ee84f6](https://github.com/DTStack/UED/commit/5ee84f6ce7cbb27fa913242bfccf8d23271bdcd4))
+* develop cron ([015bf07](https://github.com/DTStack/UED/commit/015bf07e8a5b5d2596cc1709c3e5875d10e602fd))
+* filter useless data ([1fbce5b](https://github.com/DTStack/UED/commit/1fbce5bf0cd57cbca71a46b1d966c9c5e1e5acec))
+* optimize ([0b13ea8](https://github.com/DTStack/UED/commit/0b13ea8390ae68a51e7b449efacfa89966b66c8d))
+* some title remove jumper ([39c2587](https://github.com/DTStack/UED/commit/39c25876aedfbb39b254875113c69909b2d72468))
+
+
+### Bug Fixes
+
+* [#33](https://github.com/DTStack/UED/issues/33) sort ([9721a12](https://github.com/DTStack/UED/commit/9721a1266256970e4ed247786ebbc8d66651a8b0))
+* [#35](https://github.com/DTStack/UED/issues/35) css ([73186f9](https://github.com/DTStack/UED/commit/73186f97b327207eb907ad5df415f1fbe21a07df))
+
 ## [0.1.0](https://github.com/DTStack/UED/compare/v0.0.1...v0.1.0) (2022-10-25)
 
 
