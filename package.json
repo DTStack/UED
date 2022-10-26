@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "PORT=3004 next dev",
     "dev:node": "NODE_ENV=development node server/index.js",
     "build": "next build",
     "export": "next export",
