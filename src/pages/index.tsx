@@ -7,6 +7,7 @@ import APP_CONF from "@/data/config";
 import Head from "next/head";
 import {isMobile} from "@/utils";
 import {useEffect, useState} from "react";
+import Script from 'next/script'
 
 function Home() {
     const {title, keywords, description} = seo || {};
@@ -15,8 +16,23 @@ function Home() {
     useEffect(()=>{
         setMobile(isMobile(window));
     }, []);
+
     return (
         <div style={{ overflowX: 'hidden' }}>
+            <Script
+                src="https://www.googletagmanager.com/gtag/js?id=G-FJDDJSESXT"
+                strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+                {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){window.dataLayer.push(arguments);}
+                    gtag('js', new Date());
+
+                    gtag('config', 'G-FJDDJSESXT');
+                `}
+            </Script>
+
             <Head>
                 <title>{title}</title>
                 <meta charSet="utf-8" />
@@ -89,7 +105,6 @@ function Home() {
                 <div className={styles.describe} style={{ marginTop: '30px' }}>{AboutDoc.footer}</div>
             </div>
         </div>
-
     )
 }
 

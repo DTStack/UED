@@ -142,6 +142,9 @@
       margin-right: 40px;
       cursor: pointer;
       transition: box-shadow .3s;
+      &:last-child {
+        margin-right: 0;
+      }
 
       img {
         width: 160px;
