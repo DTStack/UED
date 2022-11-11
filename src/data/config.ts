@@ -9,5 +9,6 @@ const APP_CONF = {
     IMAGE_DOMAIN: 'http://assets.dtstack.com',
     DTSTACK_URL: 'https://www.dtstack.com',
     KO: 'https://github.com/DTStack/ko',
+    CODE_REVIEW_PRACTICES: 'https://github.com/DTStack/code-review-practices',
 }
 export default APP_CONF;

@@ -46,6 +46,12 @@ const menu = [
                 label: 'dt-sql-parser',
                 jump_url: APP_CONF.DT_SQL_PARSER
             },
+            {   
+                key: 'code-review-practices',
+                name: 'code-review-practices',
+                label: 'code-review-practices',
+                jump_url: APP_CONF.CODE_REVIEW_PRACTICES,
+            },
             {
                 key: 'dt-react-component',
                 name: 'dt-react-component',

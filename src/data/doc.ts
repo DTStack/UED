@@ -58,6 +58,13 @@ export const OriginList = [
         jump_url: APP_CONF.DT_SQL_PARSER
     },
     {
+        key: 'code-review-practices',
+        imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/dt-sql-parser.png`,
+        title: 'code-review-practices',
+        subTitle: '袋鼠云数栈前端团队代码评审工程实践文档',
+        jump_url: APP_CONF.CODE_REVIEW_PRACTICES
+    },
+    {
       key: 'dt-react-component',
       imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/RC.png`,
       title: 'dt-react-component',
