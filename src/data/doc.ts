@@ -59,7 +59,7 @@ export const OriginList = [
     },
     {
         key: 'code-review-practices',
-        imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/dt-sql-parser.png`,
+        imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/code-review-practices.png`,
         title: 'code-review-practices',
         subTitle: '袋鼠云数栈前端团队代码评审工程实践文档',
         jump_url: APP_CONF.CODE_REVIEW_PRACTICES
