@@ -29,10 +29,12 @@ const Article = (data) => {
     ]
     const {title, description, keywords} = seo || {};
     const sortTag = tagList?.find(item => item.key === tag_type)?.label;
+    const env = process.env.NODE_ENV || 'development';
+    const fetchUrl = env === 'development' ? 'http://localhost:3002' : '';
 
     useEffect(() => {
         setMobile(isMobile(window));
-        fetch('/api/getTagList')
+        fetch(`${fetchUrl}/api/getTagList`)
             .then(res => res.json())
             .then(res => {
                 const tagList = res.data?.map((item) => {
@@ -75,7 +77,7 @@ const Article = (data) => {
             sort_type,
         }
         setSpinning(true)
-        fetch(`/api/getArticleList?${new URLSearchParams(params).toString()}`)
+        fetch(`${fetchUrl}/api/getArticleList?${new URLSearchParams(params).toString()}`)
             .then(res => res.json())
             .then(res => {
                 handleArticleList(res.data)
