@@ -46,7 +46,7 @@ const menu = [
                 label: 'dt-sql-parser',
                 jump_url: APP_CONF.DT_SQL_PARSER
             },
-            {   
+            {
                 key: 'code-review-practices',
                 name: 'code-review-practices',
                 label: 'code-review-practices',
@@ -75,6 +75,12 @@ const menu = [
                 name: 'dt-utils',
                 label: 'dt-utils',
                 jump_url: APP_CONF.DT_UTILS
+            },
+            {
+                key: 'yice-performance',
+                name: '易测性能检测平台',
+                label: '易测性能检测平台',
+                jump_url: APP_CONF.YI_CE
             },
             {
                 key: 'Doraemon',
