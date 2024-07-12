@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/DTStack/UED/compare/v1.0.1...v1.0.2) (2024-07-12)
+
+
+### Features
+
+* local api url ([475dba3](https://github.com/DTStack/UED/commit/475dba39548ca456118075b5de9599d6c3a98e54))
+* use yice to replace dt-utils ([2659c85](https://github.com/DTStack/UED/commit/2659c85745400b107db6694a39e80169108ce536))
+
 ### [1.0.1](https://github.com/DTStack/UED/compare/v1.0.0...v1.0.1) (2022-11-14)
 
 
