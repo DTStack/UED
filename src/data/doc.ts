@@ -79,12 +79,19 @@ export const OriginList = [
         jump_url: APP_CONF.KO,
     },
     {
-        key: 'dt-utils',
-        imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/dt-utils.png`,
-        title: 'dt-utils',
-        subTitle: '袋鼠云实用工具库',
-        jump_url: APP_CONF.DT_UTILS
+        key: 'yice-performance',
+        imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/yice.png`,
+        title: '易测',
+        subTitle: '易测性能检测平台',
+        jump_url: APP_CONF.YI_CE
     },
+    // {
+    //     key: 'dt-utils',
+    //     imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/yice.png`,
+    //     title: 'dt-utils',
+    //     subTitle: '袋鼠云实用工具库',
+    //     jump_url: APP_CONF.DT_UTILS
+    // },
     {
         key: 'Doraemon',
         imgUrl: `${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/doraemon.png`,
