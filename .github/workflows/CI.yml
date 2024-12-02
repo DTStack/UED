@@ -1,100 +1,34 @@
 name: CI
 
 on:
-  push:
-    branches: [feat_*, dev]
-  pull_request:
-    branches: [master, dev]
+    push:
+        branches: "master"
+    pull_request:
+        branches: "*"
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    setup:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
 
-      - name: 'Set pnpm'
-        uses: pnpm/action-setup@v4.0.0
-        with:
-          version: 6.32.20
+            - name: "Set pnpm"
+              uses: pnpm/action-setup@v4.0.0
+              with:
+                  version: 6.32.20
 
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 14.x
-          cache: pnpm
+            - name: Setup node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 14.x
+                  cache: pnpm
 
-      - name: Cache pnpm-lock.yaml
-        uses: actions/cache@v2
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
+            - name: Install dependencies
+              run: pnpm install
 
-      - name: Hack for single file
-        run: |
-          if [ ! -d "package-temp-dir" ]; then
-            mkdir package-temp-dir
-          fi
-          cp pnpm-lock.yaml package-temp-dir
-      - name: Cache node_modules
-        id: node_modules_cache_id
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package.json') }}-${{ hashFiles('**/package-temp-dir/pnpm-lock.yaml') }}
+            - name: Run lint
+              run: pnpm run lint
 
-      - name: Install dependencies
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: pnpm install
-
-  lint:
-    needs: [setup]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: 'Set pnpm'
-        uses: pnpm/action-setup@v4.0.0
-        with:
-          version: 6.32.20
-
-      - name: Restore cache from pnpm-lock.yaml
-        uses: actions/cache@v2
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: Restore cache from node_modules
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package.json') }}-${{ hashFiles('**/package-temp-dir/pnpm-lock.yaml') }}
-
-      - name: Run lint
-        run: pnpm run lint
-
-  build:
-    runs-on: ubuntu-latest
-    needs: [setup, lint]
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: 'Set pnpm'
-        uses: pnpm/action-setup@v4.0.0
-        with:
-          version: 6.32.20
-
-      - name: Restore cache from pnpm-lock.yaml
-        uses: actions/cache@v2
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: Restore cache from node_modules
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package.json') }}-${{ hashFiles('**/package-temp-dir/pnpm-lock.yaml') }}
-
-      - name: Build test
-        run: pnpm run build
+            - name: Build test
+              run: pnpm run build
