@@ -112,7 +112,7 @@ const Article = (data) => {
         // 内容高度，180 是移动端顶部内容，318 是移动端名称图片内容，80 是 PC 端顶部内容，226 是 PC 端名称图片内容
         const contentHeight =  mobile ? (document.getElementById('articleContent')?.offsetHeight + 180 + 318) : (document.getElementById('articleContent')?.offsetHeight + 80 + 226)
 
-        if (hasMore && (scrollTop + windowHeight >= contentHeight)) {
+        if (hasMore && (scrollTop + windowHeight + 5 >= contentHeight)) {
             console.log('下一页')
             handleNext()
         }
