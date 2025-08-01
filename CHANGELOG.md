@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.3](https://github.com/DTStack/UED/compare/v1.0.2...v1.0.3) (2025-08-01)
+
+
+### Features
+
+* add refresh data, updateTime and liked number ([750bf47](https://github.com/DTStack/UED/commit/750bf475872820bd8f01318cd09fdef8d9fb33db))
+* console.log app version ([80bce9a](https://github.com/DTStack/UED/commit/80bce9a12dfd114e7b85d529ce0d1ddee32c8366))
+* npm set registry ([485bde3](https://github.com/DTStack/UED/commit/485bde365842cb4e9164b436488a86299c0b070c))
+* support jump to dtstack.com ([066e413](https://github.com/DTStack/UED/commit/066e413c63dc67f69d9f306a9de55b68cc09ec5d))
+
+
+### Bug Fixes
+
+* [#41](https://github.com/DTStack/UED/issues/41) scroll to get next page data ([f98afec](https://github.com/DTStack/UED/commit/f98afecc13beb49b99614b4ae311fb432ef0e680))
+
 ### [1.0.2](https://github.com/DTStack/UED/compare/v1.0.1...v1.0.2) (2024-07-12)
 
 
