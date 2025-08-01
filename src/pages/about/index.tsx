@@ -34,7 +34,9 @@ function Index() {
         </div>
         <div className={styles.content} style={{ height: bgHeight }}>
             <div className={styles.footer}>
-                <div className={styles.describe}>相关链接： <span style={{ color: '#3D446E'}}>袋鼠云</span></div>
+                <div className={styles.describe}>相关链接：
+                    <a href={APP_CONF.DTSTACK_URL} target="_blank" style={{ color: '#3D446E'}} rel="noreferrer">袋鼠云</a>
+                </div>
                 <div className={styles.describe} style={{ marginTop: '30px' }}>{AboutDoc.footer}</div>
             </div>
         </div>
