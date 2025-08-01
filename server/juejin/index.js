@@ -1,3 +1,8 @@
+/**
+ * 每天上午八点从掘金获取一次数据
+ * 不在页面访问时直接从掘金获取数据，是为了防止页面刷新次数过多时调用掘金接口过多从而导致 IP 被封
+ */
+
 const axios = require('axios')
 const { getDate, getDateStr } = require('../utils')
 
@@ -13,7 +18,7 @@ const getJueJinArticleList = async () => {
             }
             const res = await axios.post('https://api.juejin.cn/content_api/v1/article/query_list', params)
             const { data, has_more } = res.data
-            data !== null && (result = result.concat(data))
+            data !== null && data !== undefined && (result = result.concat(data))
             has_more && await loop(res.data.cursor)
         }
         console.log('掘金查询开始')
