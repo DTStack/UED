@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "PORT=3004 next dev",
-    "dev:node": "NODE_ENV=development node server/index.js",
+    "dev:node": "NODE_ENV=development nodemon server/index.js",
     "build": "next build",
     "export": "next export",
     "start": "PORT=3004 next start",
@@ -41,6 +41,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.21.0",
     "eslint-config-next": "12.2.3",
+    "nodemon": "^3.1.0",
     "sass": "^1.53.0",
     "standard-version": "^9.5.0",
     "zx": "^7.0.8"
