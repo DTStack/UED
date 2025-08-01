@@ -97,7 +97,7 @@ const updateArticleList = async () => {
         const tagList = getTagListByArticleList(articleList)
         await insertTags(tagList)
     } catch (error) {
-        console.log('updateArticleList error: ', updateArticleList)
+        console.log('updateArticleList error: ', error)
         throw error
     }
 }

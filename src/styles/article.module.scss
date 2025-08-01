@@ -126,6 +126,16 @@
                     font-size: 16px;
                     font-weight: 600;
                 }
+                .updateTime {
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    > span {
+                        color: #8B8FA8;
+                        margin: 0 10px;
+                    }
+                }
                 .typeSpace {
                     color: #3D446E;
                     cursor: pointer;
@@ -165,10 +175,6 @@
                         display: flex;
                         color: #8B8FA8;
                         white-space: nowrap;
-                        img {
-                            margin-right: 8px;
-                            margin-bottom: 2px;
-                        }
                         .username {
                             padding: 0 10px 0 20px;
                             user-select: none;
@@ -176,9 +182,15 @@
                             color: #64698B;
                             text-decoration: none;
                         }
-                        .viewCount {
+                        .countBox {
                             flex: 1;
-                            text-align: right;
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-end;
+                            img {
+                                width: 16px;
+                                margin: 0 4px 2px 24px;
+                            }
                         }
                     }
                 }

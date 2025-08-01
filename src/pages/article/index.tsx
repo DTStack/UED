@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import styles from '@/styles/article.module.scss';
 import NavHeader from "@/components/navHeader";
 import APP_CONF from "@/data/config";
-import {Dropdown, Space, Menu, Spin, BackTop} from "antd";
+import {Dropdown, Space, Menu, Spin, BackTop, Button} from "antd";
 import { OpenOriginUrl, seo } from "@/data/doc";
 import { CaretDownOutlined, VerticalAlignTopOutlined } from '@ant-design/icons';
 import Head from "next/head";
@@ -18,6 +18,8 @@ const Article = (data) => {
     const [tag_type, setTagType] = useState('');
     const [articleList, setArticleList] = useState([]);
     const [spinning, setSpinning] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [updating, setUpdating] = useState(false);
     const [clearArticle, setClearArticle] = useState(false);
     const [hasMore, setHasMore] = useState(false);
     const firstUpdate = useRef(true);
@@ -34,6 +36,15 @@ const Article = (data) => {
 
     useEffect(() => {
         setMobile(isMobile(window));
+        setIsAdmin(window.localStorage.getItem("is-admin") === 'true');
+        getTagList()
+    }, [])
+
+    useEffect(() => {
+        getArticleList();
+    }, [tag_id, sort_type, page])
+
+    const getTagList=()=>{
         fetch(`${fetchUrl}/api/getTagList`)
             .then(res => res.json())
             .then(res => {
@@ -47,11 +58,7 @@ const Article = (data) => {
                 setTagType(tagList?.[0].key);
                 setTagList(tagList || []);
             })
-    }, [])
-
-    useEffect(() => {
-        getArticleList();
-    }, [tag_id, sort_type, page])
+    }
 
     // 处理文章数据
     const handleArticleList = (obj) => {
@@ -64,6 +71,7 @@ const Article = (data) => {
         setClearArticle(false)
     }
 
+    // 获取文章列表
     const getArticleList = () => {
         if (firstUpdate.current) {
             handleArticleList(data)
@@ -84,6 +92,16 @@ const Article = (data) => {
             })
             .finally(() => {
                 setSpinning(false)
+            })
+    }
+
+    // 更新数据库中的文章数据
+    const updateArticleList = () => {
+        setUpdating(true)
+        fetch(`${fetchUrl}/api/updateArticleList`)
+            .finally(() => {
+                setUpdating(false)
+                window.location.reload()
             })
     }
 
@@ -142,6 +160,14 @@ const Article = (data) => {
                         <div className={styles.leftBox}>
                             <div className={styles.sortBox}>
                                 <div className={styles.title}>文章列表</div>
+                                <div className={styles.updateTime}>
+                                    {isAdmin ? (
+                                        <Button loading={updating} onClick={updateArticleList}>
+                                            更新文章数据库
+                                        </Button>
+                                    ) : null}
+                                    <span>文章数据更新时间：{articleList[0]?.createTime}</span>
+                                </div>
                                 <div className={styles.sortElement}>
                                     <Dropdown
                                         overlay={
@@ -194,7 +220,17 @@ const Article = (data) => {
                                                 <div className={styles.row}>
                                                     <div>{article.create_date} { mobile ? '' : article.create_time}</div>
                                                     <a className={styles.username} href={'https://juejin.cn/user/2137106333053912'} target='_blank' rel="nofollow noopener noreferrer">{article.user_name}</a>
-                                                    <div className={styles.viewCount}><img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/eye.svg`} alt=""/>{article.view_count}</div>
+
+                                                    <div className={styles.countBox}>
+                                                        <div>
+                                                            <img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/eye.svg`} alt=""/>
+                                                            {article.view_count}
+                                                        </div>
+                                                        <div>
+                                                            <img src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Article/liked.svg`} alt=""/>
+                                                            {article.digg_count}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         )
