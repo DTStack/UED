@@ -42,12 +42,15 @@ function NavHeader(props: IProps) {
     }
     return (
         <div className={classNames(styles.nav, {[styles.fixedNav]: isFixed })}>
-            <Link href={'/'}>
-                <div className={styles.leftMenu}>
-                    <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/logo.png`} width={46} height={52}/>
+            <div className={styles.leftMenu}>
+                <a href="https://dtstack.com" target="_blank" rel="noreferrer">
+                    <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/dtstack_logo.png`} width={160} height={40}/>
+                </a>
+                <Link href="/">
+                {/* <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/logo.png`} width={46} height={52}/> */}
                     <h1 className={styles.subtitle}>袋鼠云数栈UED团队</h1>
-                </div>
-            </Link>
+                </Link>
+            </div>
             <div className={styles.rightMenu}>
                 { (H5 || isShow) && renderNavgitor()}
             </div>
