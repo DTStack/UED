@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/DTStack/UED/compare/v1.0.3...v1.0.4) (2025-08-04)
+
+
+### Features
+
+* baidu tongji ([91022fd](https://github.com/DTStack/UED/commit/91022fdbccf2cbd5a1d52d5a438659382a061994))
+* basePath is ued ([c377be2](https://github.com/DTStack/UED/commit/c377be2374b7ef743da1a69fd40a9b6e5fc10e82))
+
 ### [1.0.3](https://github.com/DTStack/UED/compare/v1.0.2...v1.0.3) (2025-08-01)
 
 
