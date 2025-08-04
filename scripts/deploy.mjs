@@ -25,7 +25,7 @@ $.verbose = false;
 
     infoLog('3. Input server ip');
     const ip = await question(`Input the server ip: `);
-    doneLog(`Your ip is ${ip}.`);
+    doneLog(`Your ip is ${ip}`);
 
     infoLog(`4. Uploading files...`);
     $.verbose = true;

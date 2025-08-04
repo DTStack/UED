@@ -7,14 +7,14 @@ const menu = [
         name: 'home',
         label: '首页',
         children: [],
-        jump_url: '/',
+        jump_url: '/ued',
     },
     {
         key: 'article',
         name: 'article',
         label: '专栏',
         children: [],
-        jump_url: '/article',
+        jump_url: '/ued/article',
     },
     {
         key: 'design',
@@ -95,7 +95,7 @@ const menu = [
         name: 'about',
         label: '关于我们',
         children: [],
-        jump_url: '/about'
+        jump_url: '/ued/about'
     },
 ]
 export default menu;

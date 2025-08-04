@@ -1,4 +1,6 @@
 const nextConfig = {
+    assetPrefix: '/ued',
+    // basePath: '/ued',
     distDir: 'build',
     images: {
         domains: [

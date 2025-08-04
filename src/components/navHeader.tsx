@@ -43,10 +43,10 @@ function NavHeader(props: IProps) {
     return (
         <div className={classNames(styles.nav, {[styles.fixedNav]: isFixed })}>
             <div className={styles.leftMenu}>
-                <a href="https://dtstack.com" target="_blank" rel="noreferrer">
-                    <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/dtstack_logo.png`} width={160} height={40}/>
+            <a href="https://dtstack.com" target="_blank" rel="noreferrer" style={{ height: '30px' }}>
+                    <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/dtstack_logo.png`} width={120} height={30}/>
                 </a>
-                <Link href="/">
+                <Link href="/ued">
                 {/* <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/logo.png`} width={46} height={52}/> */}
                     <h1 className={styles.subtitle}>袋鼠云数栈UED团队</h1>
                 </Link>

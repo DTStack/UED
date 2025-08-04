@@ -140,6 +140,7 @@ const Article = (data) => {
         <div className={styles.article} onScroll={handleScroll}>
             <Head>
                 <title>{title}</title>
+                <link rel="icon" href="/ued/favicon.ico" />
                 <meta charSet="utf-8" />
                 <meta name="keywords" content={keywords} />
                 <meta name="description" content={description} />
