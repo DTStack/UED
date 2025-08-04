@@ -33,6 +33,29 @@ function Home() {
                 `}
             </Script>
 
+            <Script id="baidu-analytics-all" strategy="afterInteractive">
+                {`
+                    var _hmt = _hmt || [];
+                    (function() {
+                        var hm = document.createElement("script");
+                        hm.src = "https://hm.baidu.com/hm.js?36bc3cfa58477d2bee1da472563ce49b";
+                        var s = document.getElementsByTagName("script")[0];
+                        s.parentNode.insertBefore(hm, s);
+                    })();
+                `}
+            </Script>
+            <Script id="baidu-analytics-ued" strategy="afterInteractive">
+                {`
+                    var _hmt = _hmt || [];
+                    (function() {
+                        var hm = document.createElement("script");
+                        hm.src = "https://hm.baidu.com/hm.js?885aa2d5ddad639aca623684fd6bc0dd";
+                        var s = document.getElementsByTagName("script")[0];
+                        s.parentNode.insertBefore(hm, s);
+                    })();
+                `}
+            </Script>
+
             <Head>
                 <title>{title}</title>
                 <link rel="icon" href="/ued/favicon.ico" />
