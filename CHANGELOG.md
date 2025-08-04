@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.5](https://github.com/DTStack/UED/compare/v1.0.4...v1.0.5) (2025-08-04)
+
+
+### Features
+
+* replace favicon.ico ([1a666ee](https://github.com/DTStack/UED/commit/1a666ee946770b7cfe014bf543f034051f3e377e))
+
 ### [1.0.4](https://github.com/DTStack/UED/compare/v1.0.3...v1.0.4) (2025-08-04)
 
 
