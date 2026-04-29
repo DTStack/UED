@@ -1,0 +1,16 @@
+src/data/doc.ts
+  h_ce9de14c50da44 10
+src/components/navHeader.tsx
+  h_ce9de14c50da44 47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "ad4593d360632d9a7a3756b9233516b461a4fde9",
+  "prompts": {},
+  "humans": {
+    "h_ce9de14c50da44": {
+      "author": "liuyi"
+    }
+  }
+}
