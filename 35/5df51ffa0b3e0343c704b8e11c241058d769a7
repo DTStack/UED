@@ -1,0 +1,12 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "355df51ffa0b3e0343c704b8e11c241058d769a7",
+  "prompts": {},
+  "humans": {
+    "h_ce9de14c50da44": {
+      "author": "liuyi"
+    }
+  }
+}
