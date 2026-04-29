@@ -44,7 +44,7 @@ function NavHeader(props: IProps) {
         <div className={classNames(styles.nav, {[styles.fixedNav]: isFixed })}>
             <div className={styles.leftMenu}>
             <a href="https://dtstack.com" target="_blank" rel="noreferrer" style={{ height: '30px' }}>
-                    <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/dtstack_logo.png`} width={120} height={30}/>
+                    <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/dtstack_logo_new.png`} width={110} height={32}/>
                 </a>
                 <Link href="/ued">
                 {/* <Image src={`${APP_CONF.IMAGE_DOMAIN}/UEDLanding/Home/logo.png`} width={46} height={52}/> */}
