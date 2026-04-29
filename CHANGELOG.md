@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.6](https://github.com/DTStack/UED/compare/v1.0.5...v1.0.6) (2026-04-29)
+
+
+### Features
+
+* upgrade logo and about me ([04589d3](https://github.com/DTStack/UED/commit/04589d302b356b641d7703d9db515253653d2487))
+
 ### [1.0.5](https://github.com/DTStack/UED/compare/v1.0.4...v1.0.5) (2025-08-04)
 
 
